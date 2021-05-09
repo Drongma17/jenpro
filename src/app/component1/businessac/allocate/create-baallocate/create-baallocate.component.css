@@ -1,0 +1,14 @@
+
+.card{
+    background-color: rgb(142, 175, 179);
+}
+
+
+
+.image{
+    height: 40px;
+    width: 40px;
+    margin: 0px;
+    padding: 0px;
+    border-radius:50%;
+}

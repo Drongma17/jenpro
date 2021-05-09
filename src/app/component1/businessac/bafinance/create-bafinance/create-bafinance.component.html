@@ -1,0 +1,141 @@
+<br><br>
+ <div class="container">
+  <div class="text-center">
+      <button type="button" class="btn btn-primary"><a routerLink="/list_businessac"> <span style="color: white;"> CREDIT FINANCIAL TO BUSINESS ACCELERATION </span></a></button>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <input type="text" [(ngModel)]="searchbusinessac" class="form-control" placeholder="Search . . ." />
+        <table class="table table-bordered row-border hover display text-nowrap">
+            <thead>
+              <tr>
+                <th scope="col" style="width:10px;">Photo</th>
+                <th scope="col" style="width:10px;">Name</th>
+                <th scope="col" style="width:10px;">Choose</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let businessac of businessacs | businessac:searchbusinessac">
+               <td>
+                  <img src="{{ businessacFile+businessac.fileName }}" class="image" />
+              <td>
+                <b>
+                  <p class="btn-ms" [ngStyle]="{'background-color': getColor(businessac.id)}">
+                    {{businessac.businessacName}}
+                  </p>
+                </b>
+              </td>
+              <td>
+                <button [ngStyle]="{'background-color': getColor(businessac.id)}" class="btn btn-success btn-sm"
+                (click)="selectedBusinessac(businessac.id)" >
+                 click to add
+                </button>
+              </td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+  
+
+       <div class="col-md-6">
+         <form #businessacfinanceForm="ngForm" autocomplete="off">
+           <div class="card">
+             <div class="card-header">
+               <div class="card-title text-center">
+                 Add businessac Finance
+               </div>
+             </div>
+             <div class="card-body">
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="id" [(ngModel)]="finance.id" name="id">
+                  </div>
+
+                 
+            <div class="form-group">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Purpose</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="purpose" [(ngModel)]="finance.purpose" ngModel>
+                  </div>
+                </div>
+              </div>
+  
+
+
+              
+            <div class="form-group">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Disbursed Amount</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="disburseAmount" [(ngModel)]="finance.disburseAmount"
+                      ngModel>
+                  </div>
+                </div>
+              </div>
+  
+
+
+              <div class="col-md-8">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-7">
+                        <label>Distbursed Date</label>
+                      </div>
+                      <div class="col-md-5">
+                        <input class="pickdate" type="date" name="disburseDate" [(ngModel)]="finance.disburseDate" ngModel>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <div class="col-md-2">
+                          <button type="submit" class="btn btn-success" (click)="addBusinessacFinance(finance)"
+                            [disabled]="!businessacfinanceForm.valid">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+      
+      
+      
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-md-7">
+                          </div>
+                          <div class="col-md-5">
+                            <button type="button" class="btn btn-info btn-sm"><a routerLink="/list_ba_finance"> <span
+                                  style="color: white;"> &lArr; go back
+                                </span></a></button>
+      
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                  </div>
+
+
+             </div>
+           </div>
+         </form>
+       </div>
+
+
+  </div>
+</div>
+
+
+

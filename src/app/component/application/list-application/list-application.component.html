@@ -1,0 +1,35 @@
+
+<body>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+      class="table table-bordered row-border hover display text-nowrap">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">PHOTO</th>
+          <th scope="col">NAME</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">PHONE NO</th>
+          <th scope="col">GENDER</th>
+          <th scope="col">BUSINESSNAME</th>
+          <th scope="col" class="updateheads">ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let applicant of applicants">
+          <th scope="row">{{applicant.id}}</th>
+          <td>
+            <img src="{{ IMAGE_URL+applicant.fileName }}" class="image" />
+          </td>
+          <td>  <a [routerLink]="['/detail_application', applicant.id]"> <span>{{applicant.applicantName}}</span> </a></td>
+          <td>{{applicant.email}}</td>
+          <td>{{applicant.phoneNumber}}</td>
+          <td>{{applicant.gender}}</td>
+          <td>{{applicant.businessName}}</td>
+          <td>
+            <a><button type="button" class="btn btn-danger" (click)="deleteapplicant(applicant.id)"
+                class="deletecolr"><i class="fas fa-trash-alt"></i></button></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>

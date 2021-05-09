@@ -1,0 +1,77 @@
+
+<body>
+  <div class="card">
+      <div style="text-align: center;">
+          <a [routerLink]="['/list_event']" ><button class="btn btn-primary"> LIST EVENT </button> </a>
+         </div>
+    <div class="card-body">
+        
+      <div class="row">
+        <div class="col-md-3" data-spy="scroll" data-target="scrolldata" data-offset="5" >
+          <div class="row" style="margin-bottom:15px;">
+            <div class="col-md-12">
+              <input type="text" [(ngModel)]="searchText" class="form-control" style="width: 100%;"
+                placeholder="Search event. . .">
+            </div>
+          </div>
+
+          <hr>
+          <div style="text-align: center" class="col-md-12"  class="scrolldata"
+            *ngFor="let event of events ">
+            <div class="col-md-6">
+              <a [routerLink]="['/detail_event', event.id]" (click)="refresh(event.id)"><img
+                  src="{{eventFile+event.fileName }}" class="sideimage" alt="Cinque Terre"></a>
+            </div>
+            <div class="col-md-6">
+              <p>{{event.eventName}}</p>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+
+        <div class="col-md-9">
+          <div class="jumbotron">
+
+            <div class="col-md-12" style="text-align: center">
+              <div class="text-center">
+                <p> <b>{{eventObject.title}} {{eventObject.eventName}}</b></p>
+              </div>
+              <img src="{{eventFile+eventObject.fileName }}" class="image" alt="Cinque Terre">
+            </div>
+            <hr>
+
+
+
+           
+           
+            <div class="row">
+              <div class="col-md-5">
+                <label> Vanue :</label>
+              </div>
+              <div class="col-md-7">
+                <p>{{eventObject.eventVanue}}</p>
+              </div>
+            </div>
+          </div>
+      
+        <hr>
+
+
+            <div class="text-center">
+                <h3>ABOUT</h3>
+              </div>
+              <hr>
+            <cdk-virtual-scroll-viewport itemSize="200" class="viewport">
+                <mat-card>
+                  <mat-card-title>{{eventObject.aboutEvent}}</mat-card-title>
+                </mat-card>
+              </cdk-virtual-scroll-viewport>
+          </div>
+          <hr>
+          
+          <hr>
+      </div>
+    </div>
+  </div>
+</body>

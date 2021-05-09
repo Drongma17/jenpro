@@ -1,0 +1,102 @@
+<br>
+<div class="container">
+    <div class="text-center">
+        <button class="btn btn-lg btn-primary"><a [routerLink]="['/list_snowbank']" style="color: white;">LIST GAME'S CHANGER</a> </button>
+    </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <input type="text" [(ngModel)]="searchSnowbank" class="form-control" placeholder="Search . . ." />
+        <table class="table table-bordered row-border hover display text-nowrap">
+
+          <thead>
+            <tr>
+              <th scope="col" style="width: 10px;">Photo</th>
+              <th scope="col" style="width: 20px;">Name</th>
+              <th scope="col" style="width: 10px;">Choose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let snowbank of snowbanks | snowbank:searchSnowbank ">
+              <td><img src="{{ snowbankPicture+snowbank.fileName }}" class="image" /></td>
+              <td><b>
+                  <p class="btn-sm" [ngStyle]="{'background-color':getColor(snowbank.id)}">
+                    {{snowbank.customerName}}</p>
+                </b> </td>
+              <td> <button [ngStyle]="{'background-color':getColor(snowbank.id)}" class="btn btn-primary btn-sm"
+                (click)="selectedSnowbank(snowbank.id)">select</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+        <form #returnmoneyForm="ngForm">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title text-center">
+                UPDATE DISBURSED AMOUNT
+                </div>
+              </div>
+              <div class="card-body">
+    
+                <div class="form-group">
+                  <input type="hidden" class="form-control" id="id" [(ngModel)]="data.id" name="id" >
+                </div>
+    
+               
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <div class="col">
+                      <label>purpose</label>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" name="purpose" [(ngModel)]="data.purpose">
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <div class="col">
+                      <label>Return Amount</label>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" name="returnAmount" [(ngModel)]="data.returnAmount" >
+                    </div>
+                  </div>
+                </div>
+    
+    
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <div class="col">
+                      <label>Return Date</label>
+                    </div>
+                    <div class="col">
+                      <input class="pickdate" type="date" name="returnDate" [(ngModel)]="data.returnDate"  >
+                    </div>
+                  </div>
+                </div>
+    
+    
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-4">
+                      <button type="submit" class="btn btn-lg btn-success" (click)="updateReturnmoney(data)"
+                        [disabled]="!returnmoneyForm.valid">update</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+    </div>
+
+    
+    <div class="col-md-2"></div>
+  </div>
+</div>

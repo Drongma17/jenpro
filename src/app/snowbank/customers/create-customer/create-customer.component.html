@@ -1,0 +1,270 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+      <form #snowbankform="ngForm" [formGroup]="snowbankReactiveForm" autocomplete="off">
+
+
+        <div class="card">
+
+
+          <div class="card-header text-center">
+            <button type="button" class="btn btn-info btn-lg"><a routerLink="/list_snowbank"> <span
+                  style="color: white;">LIST TED Conference
+                </span></a></button>
+          </div>
+          <div class="card-body">
+
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id" name="id" formControlName="id">
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select name="title" class="form-control" formControlName="title">
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Ms">Ms</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="col-md-8">
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <input type="text" class="form-control" id="customerName" name="customerName"
+                      formControlName="customerName" placeholder="Customer Name *** ">
+                    <div
+                      *ngIf="snowbankReactiveForm.controls.customerName.errors && (snowbankReactiveForm.controls.customerName.touched || snowbankReactiveForm.controls.customerName.dirty)"
+                      style=color:red;>
+                      <div *ngIf="snowbankReactiveForm.hasError('required', 'customerName')">
+                        <h6> Customer Name is required</h6>
+                      </div>
+                      <div *ngIf="snowbankReactiveForm.hasError('pattern', 'customerName')">
+                        <h6> Customer Name is invalid formate</h6>
+                      </div>
+                      <div *ngIf="snowbankReactiveForm.hasError('minlength', 'customerName')">
+                        <h6> Customer Name must be 3 charactors length</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="d-flex flex-row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" name="email" formControlName="email"
+                    placeholder="Email *** ">
+                  <div
+                    *ngIf="snowbankReactiveForm.controls.email.errors && (snowbankReactiveForm.controls.email.touched || snowbankReactiveForm.controls.email.dirty)"
+                    style=color:red;>
+                    <div *ngIf="snowbankReactiveForm.hasError('required', 'email')">
+                      <h6> Email is required</h6>
+                    </div>
+                    <div *ngIf="snowbankReactiveForm.hasError('pattern', 'email')">
+                      <h6>Email is invalid formate</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                    formControlName="phoneNumber" placeholder="Phone number *** ">
+                  <div
+                    *ngIf="snowbankReactiveForm.controls.phoneNumber.errors && (snowbankReactiveForm.controls.phoneNumber.touched || snowbankReactiveForm.controls.phoneNumber.dirty)"
+                    style=color:red;>
+                    <div *ngIf="snowbankReactiveForm.hasError('required', 'phoneNumber')">
+                      <h6>Phone Number is required</h6>
+                    </div>
+                    <div *ngIf="snowbankReactiveForm.hasError('pattern', 'phoneNumber')">
+                      <h6> Phone Number is invalid</h6>
+                    </div>
+                    <div *ngIf="snowbankReactiveForm.hasError('minlength', 'phoneNumber')">
+                      <h6> Phone Number must be 10 digits</h6>
+                    </div>
+                    <div *ngIf="snowbankReactiveForm.hasError('maxlength', 'phoneNumber')">
+                      <h6> Phone Number can not be exit 14 digits</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="d-flex flex-row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>D.O.B </label>
+                    </div>
+                    <div class="col-md-9">
+                      <input class="pickdate" type="date" name="dateOfBirth" name="dateOfBirth"
+                        formControlName="dateOfBirth">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="gender">
+                        Gender
+                      </label>
+                    </div>
+                    <div class="col-md-10">
+                      <select class="drops" name="gender" id="gender" formControlName="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="businessName" name="businessName"
+                    formControlName="businessName" placeholder="Business Name *** ">
+                  <div
+                    *ngIf="snowbankReactiveForm.controls.businessName.errors && (snowbankReactiveForm.controls.businessName.touched || snowbankReactiveForm.controls.businessName.dirty)"
+                    style=color:red;>
+                    <div *ngIf="snowbankReactiveForm.hasError('required', 'businessName')">
+                      <h6> business name is required</h6>
+                    </div>
+                    <div *ngIf="snowbankReactiveForm.hasError('pattern', 'businessName')">
+                      <h6> business name is invalid</h6>
+                    </div>
+                    <div *ngIf="snowbankReactiveForm.hasError('minlength', 'businessName')">
+                      <h6> business name must be 10 digits </h6>
+                    </div>
+                    <div *ngIf="snowbankReactiveForm.hasError('maxlength', 'businessName')">
+                      <h6> business model can not be exit 14 digits </h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input class="form-control" id="accountHolderName" name="accountHolderName"
+                    formControlName="accountHolderName" placeholder="Account HolderName">
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input class="form-control" id="accountNumber" name="accountNumber" formControlName="accountNumber"
+                    placeholder="Account Number">
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input class="form-control" id="ifscCode" name="ifscCode" formControlName="ifscCode"
+                    placeholder="IFSC code">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <input class="form-control" id="address" name="address" formControlName="address"
+                placeholder="Full Address">
+            </div>
+
+
+            <div class="form-group">
+              <textarea class="form-control"  id="briefIntroduction" name="briefIntroduction" formControlName="briefIntroduction"
+                placeholder="Descriptions"></textarea>
+            </div>
+            
+
+
+            <div class="form-group">
+              <textarea class="form-control" rows="5" id="about" name="about" formControlName="about"
+                placeholder="Descriptions"></textarea>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Category :***</label>
+                  </div>
+                  <div class="col-md-8">
+                    <select class="form-control" name="sbCategoryName" formControlName="sbCategoryName">
+                      <option value="0">--Select--***</option>
+                      <option *ngFor="let sbcategory of sbcategories ">
+                        {{sbcategory.categoryName }}
+                      </option>
+                    </select>
+                    <div
+                      *ngIf="snowbankReactiveForm.controls.sbCategoryName.errors && (snowbankReactiveForm.controls.sbCategoryName.touched || snowbankReactiveForm.controls.sbCategoryName.dirty)"
+                      style=color:red;>
+                      <div *ngIf="snowbankReactiveForm.hasError('required', 'sbCategoryName')">
+                        <h6> Category Name is required</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                    style="height:100%" name="fileName" formControlName="fileName">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-lg btn-success" (click)="saveSnowbank(snowbankReactiveForm)"
+                  [disabled]="!snowbankform.valid">Submit</button>
+
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-6"></div>
+                  <div class="col-md-6">
+                    <button type="button" class="btn btn-info btn-sm"><a routerLink="/create_snowbank_category"> <span
+                          style="color: white;">create category
+                        </span></a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>

@@ -1,0 +1,217 @@
+<br>
+
+<div class="container">
+
+  <div class="col-md-3"></div>
+
+
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header text-center">
+          <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_investment"> <span style="color: white;">  LIST INVESTMENT FORM! </span></a></button>
+      </div>
+      <br>
+      <form #investmentform="ngForm" [formGroup]="investmentReactiveForm" autocomplete="off">
+
+        <div class="d-flex flex-row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <select name="title" class="form-control"  formControlName="title">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <div class="row">
+                <input type="text" class="form-control" id="investmentName"  name="investmentName" 
+                  formControlName="investmentName" placeholder="Full Name ***">
+                <div
+                  *ngIf="investmentReactiveForm.controls.investmentName.errors && (investmentReactiveForm.controls.investmentName.touched || investmentReactiveForm.controls.investmentName.dirty)"
+                  style=color:red;>
+                  <div *ngIf="investmentReactiveForm.hasError('required', 'investmentName')">
+                    <h6> investment Name is required</h6>
+                  </div>
+                  <div *ngIf="investmentReactiveForm.hasError('minlength', 'investmentName')">
+                    <h6> investment Name must be 3 charactors length</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" class="form-control" id="email"  name="email" 
+                formControlName="email" placeholder="email ***">
+              <div
+                *ngIf="investmentReactiveForm.controls.email.errors && (investmentReactiveForm.controls.email.touched || investmentReactiveForm.controls.email.dirty)"
+                style=color:red;>
+                <div *ngIf="investmentReactiveForm.hasError('required', 'email')">
+                  <h6> Email is required</h6>
+                </div>
+                <div *ngIf="investmentReactiveForm.hasError('pattern', 'email')">
+                  <h6>Email is invalid formate</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="phoneNumber"  name="phoneNumber"
+                 formControlName="phoneNumber" placeholder="Phone number ***">
+              <div
+                *ngIf="investmentReactiveForm.controls.phoneNumber.errors && (investmentReactiveForm.controls.phoneNumber.touched || investmentReactiveForm.controls.phoneNumber.dirty)"
+                style=color:red;>
+                <div *ngIf="investmentReactiveForm.hasError('required', 'phoneNumber')">
+                  <h6>Phone Number is required</h6>
+                </div>
+                <div *ngIf="investmentReactiveForm.hasError('pattern', 'phoneNumber')">
+                  <h6> Phone Number is invalid</h6>
+                </div>
+                <div *ngIf="investmentReactiveForm.hasError('minlength', 'phoneNumber')">
+                  <h6> Phone Number must be 10 digits</h6>
+                </div>
+                <div *ngIf="investmentReactiveForm.hasError('maxlength', 'phoneNumber')">
+                  <h6> Phone Number can not be exit 14 digits</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>D.O.B</label>
+                </div>
+                <div class="col-md-8">
+                  <input class="pickdate" type="date" name="dateOfBirth" 
+                     formControlName="dateOfBirth">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="gender">
+                    gender
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <select class="drops" name="gender" id="gender"  formControlName="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="businessName" name="businessName"
+                formControlName="businessName" placeholder="Business Name ***">
+                <div
+                *ngIf="investmentReactiveForm.controls.businessName.errors && (investmentReactiveForm.controls.businessName.touched || investmentReactiveForm.controls.businessName.dirty)"
+                style=color:red;>
+                <div *ngIf="investmentReactiveForm.hasError('required', 'businessName')">
+                  <h6>Business Name is required</h6>
+                </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="address" name="address" 
+                formControlName="address" placeholder="address">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control"id="briefIntroduction"  name="briefIntroduction"
+              formControlName="briefIntroduction" placeholder="brief introduction"></textarea>
+          </div>
+
+        <div class="form-group">
+          <textarea class="form-control" rows="5" id="about"  name="about"
+            formControlName="about" placeholder="descriptions"></textarea>
+        </div>
+
+
+
+        <div class="d-flex flex-row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label>Icategory:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <select class="form-control"  name="investmentCategory"
+                        formControlName="investmentCategory">
+                        <option value="0">--Select--</option>
+                        <option *ngFor="let pre of investmentcategories | async">
+                          {{pre.name }}
+                        </option>
+                      </select>
+                      <div
+                        *ngIf="investmentReactiveForm.controls.investmentCategory.errors && (investmentReactiveForm.controls.investmentCategory.touched || investmentReactiveForm.controls.investmentCategory.dirty)"
+                        style=color:red;>
+                        <div *ngIf="investmentReactiveForm.hasError('required', 'investmentCategory')">
+                          <h6> Category Name is required</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                      style="height:100%" name="fileName"  formControlName="fileName">
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-row">
+                  <div class="col-md-6">
+                    <button type="submit" class="btn btn-lg btn-success"
+                    (click)="saveInvestment(investmentReactiveForm)" [disabled]="!investmentform.valid">Submit</button>
+    
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-6"></div>
+                      <div class="col-md-6">
+                        <button type="button" class="btn btn-info btn-sm"><a routerLink="/create_investment_category"> <span
+                              style="color: white;">create Icategory
+                            </span></a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+        <br>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-1"></div>
+</div>

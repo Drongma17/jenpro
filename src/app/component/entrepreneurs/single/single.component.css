@@ -1,0 +1,32 @@
+
+body{
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(226, 245, 241);
+}
+
+.container-fluid {
+  font-family: sans-serif;
+}
+
+
+.image{
+height: 250px;
+width: 200px;
+}
+
+
+.aboutwidth{
+  height: 700px;
+}
+
+.briefview{
+  height: 200px;
+  width: 100%;
+}
+.viewport {
+  height: 450px;
+  width: 100%;
+ }
+
+

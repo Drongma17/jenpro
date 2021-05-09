@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+     
+      <div class="card">
+        <div class="card-header text-center">
+          <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_gallery"> <span
+            style="color: white;">
+            LIST GALLERY </span> </a> 
+          </button>
+        </div>
+        <div class="card-body">
+          <form id="formUpdateGallery" name="formUpdateGallery" #galleryUpdate="ngForm">
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="lable">
+                    Photo Name
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" [(ngModel)]="galleryObject.photoName" name="photoName" ngModel
+                    class="form-control">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-5">
+                  <label>image capture date </label>
+                </div>
+                <div class="col-md-7">
+                  <input class="pickdate" type="date" name="imageDate" [(ngModel)]="galleryObject.imageDate" ngModel
+                    class="form-control">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="lable">
+                    Sub Description
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" [(ngModel)]="galleryObject.subDescription" name="subDescription" ngModel
+                    class="form-control">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <textarea rows="5" [(ngModel)]="galleryObject.galleryDescription" name="galleryDescription" ngModel
+                class="form-control"></textarea>
+            </div>
+
+            
+            <div class="row">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                    style="height:100%" name="fileName" [(ngModel)]="galleryObject.fileName" ngModel>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <div class="col-md-5">
+                <input class="btn btn-lg btn-primary" type="submit" (click)="updateGallery()" value="Update">
+              </div>
+            </div>
+
+            </form>
+        </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+
+
+    </div>
+  </div>
+</div>

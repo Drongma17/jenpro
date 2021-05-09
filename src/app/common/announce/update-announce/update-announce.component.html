@@ -1,0 +1,92 @@
+<br><br>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+      <form #announcementForm="ngForm"   name="announcement" autocomplete="off">
+
+
+        <div class="card">
+
+
+          <div class="card-header text-center">
+              <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_announce"> <span
+                style="color: white;">
+                ANNOUNCEMENT LIST</span> </a> 
+              </button>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id" [(ngModel)]="announceObject.id" name="id" ngModel>
+            </div>
+
+
+
+
+            <div class="form-group">
+              <div class="row">
+                <input type="text" class="form-control" id="subject" [(ngModel)]="announceObject.subject" name="subject" ngModel>
+              </div>
+            </div>
+
+
+            <br>
+
+            
+            <div class="form-group">
+              <div class="row">
+                <input type="text" class="form-control" id="title" [(ngModel)]="announceObject.title" name="title" ngModel>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <div  class="row">
+                <div class="col-md-6 offset-3">
+                   <h3>update announcement</h3>  
+                </div>
+              </div>
+              <div class="row">
+                <textarea class="form-control" rows="10" id="body" [(ngModel)]="announceObject.body" name="body" ngModel></textarea>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label>Date</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input class="pickdate" class="form-control" type="date"  name="date" [(ngModel)]="announceObject.date" ngModel>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                      style="height:100%" name="fileName" [(ngModel)]="announceObject.fileName" >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-success" (click)="updateAnnounce()">update</button>
+
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+  
+  </div>

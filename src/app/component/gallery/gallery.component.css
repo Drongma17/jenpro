@@ -1,0 +1,14 @@
+
+body {
+    margin: 2px;
+    padding: 0px;
+}
+
+.img-thumbnail {
+ width:400px;
+ height:400px;
+}
+
+.card {
+  margin :5px;
+}

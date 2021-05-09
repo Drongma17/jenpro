@@ -1,0 +1,87 @@
+<body>
+  <div class="card">
+    <div style="text-align: center;">
+      <a [routerLink]="['/list_gallery']"><button class="btn btn-primary"> LIST GALLERY </button> </a>
+    </div>
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-md-3" data-spy="scroll" data-target="scrolldata" data-offset="5">
+          <div class="row" style="margin-bottom:15px;">
+            <div class="col-md-12">
+              <input type="text" [(ngModel)]="searchText" class="form-control" style="width: 100%;"
+                placeholder="Search photo. . .">
+            </div>
+          </div>
+
+          <hr>
+          <div style="text-align: center" class="col-md-12" class="scrolldata" *ngFor="let gallery of gallerys ">
+            <div class="col-md-6">
+              <a [routerLink]="['/detail_gallery', gallery.id]" (click)="refresh(gallery.id)"><img
+                  src="{{galleryPicture+gallery.fileName }}" class="sideimage" alt="Cinque Terre"></a>
+            </div>
+            <div class="col-md-6">
+              <p>{{gallery.photoName}}</p>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+
+        <div class="col-md-9">
+          <div class="jumbotron">
+
+            <div class="col-md-12" style="text-align: center">
+              <div class="text-center">
+                <p> <b> {{galleryObject.photoName}}</b></p>
+              </div>
+              <img src="{{galleryPicture+galleryObject.fileName }}" class="image" alt="Cinque Terre">
+            </div>
+            <hr>
+
+
+
+
+            <div class="row">
+              <div class="col-md-5">
+                <label> Dates :</label>
+              </div>
+              <div class="col-md-7">
+                <p>{{galleryObject.imageDate}}</p>
+              </div>
+            </div>
+          </div>
+
+
+          <hr>
+
+
+          <div class="text-center">
+            <h3>Brief Description</h3>
+          </div>
+          <hr>
+          <cdk-virtual-scroll-viewport itemSize="200" class="briefview">
+            <mat-card>
+              <mat-card-title>{{galleryObject.subDescription}}</mat-card-title>
+            </mat-card>
+          </cdk-virtual-scroll-viewport>
+
+          <hr>
+
+
+          <div class="text-center">
+            <h3>Photo Description</h3>
+          </div>
+          <hr>
+          <cdk-virtual-scroll-viewport itemSize="200" class="viewport">
+            <mat-card>
+              <mat-card-title>{{galleryObject.galleryDescription}}</mat-card-title>
+            </mat-card>
+          </cdk-virtual-scroll-viewport>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+  </div>
+</body>

@@ -1,0 +1,50 @@
+
+.container {
+    margin-top: 5px;
+    padding: 5px;
+  }
+.card {
+    background-color:  #bacee5;
+}
+
+.goback{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 80px;
+}
+
+h5 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.drops {
+    margin-left: 20px;
+    padding-left: 3px;
+    width: 80%;
+}
+
+.pickdate {
+    margin-left: 25px;
+}
+
+form.entre-form {
+    background-color: #dbdbdb;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+div>div.validation-error {
+    color: red;
+    text-align: center;
+}
+
+button:hover, a.btn.hover {
+    cursor: pointer;
+}
+
+h3 {
+    font-size: 15px;
+}
+

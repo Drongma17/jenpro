@@ -1,0 +1,49 @@
+<body>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary"><a routerLink="/create_guest"> <span style="color: white;"> ADD NEW GUEST
+             </span></a></button>
+      </div>
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+    class="table table-bordered row-border hover display text-nowrap">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone No</th>
+        <th scope="col">Gender</th>
+        <th scope="col">highest Degree</th>
+        <th scope="col">topicToSpeck</th>
+        <th scope="col">speakingDate</th>
+        <th scope="col" class="updateheads">Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let guest of guests">
+        <th scope="row">{{guest.id}}</th>
+        <td>
+          <img src="{{ IMAGE_URL+guest.fileName }}" class="image" />
+        </td>
+        <td>
+          <a [routerLink]="['/detail_guest', guest.id]">
+          {{guest.fullName}}
+        </a>
+        </td>
+        <td>{{guest.email}}</td>
+        <td>{{guest.phoneNumber}}</td>
+        <td>{{guest.gender}}</td>
+        <td>{{guest.highestDegree}}</td>
+        <td>{{guest.topicToSpeck}}</td>
+        <td>{{guest.speakingDate | date :  "dd-MM-y" }}</td>
+          <td>
+            <a><button type="button" class="btn btn-primary" [routerLink]="['/update_guest', guest.id]"
+                class="updatecolre"><i class="fas fa-edit"></i> </button></a>
+            <a><button type="button" class="btn btn-danger" (click)="deleteGuest(guest.id)"
+                class="deletecolr"><i class="fas fa-trash-alt"></i></button></a>
+          </td>
+      </tr>
+     
+    </tbody>
+  </table>
+</body>

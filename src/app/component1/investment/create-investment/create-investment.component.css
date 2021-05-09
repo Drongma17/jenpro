@@ -1,0 +1,14 @@
+
+.container {
+    margin-top: 5px;
+    padding: 5px;
+  }
+.card {
+    background-color:  #6d69bd;
+}
+
+.goback{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 80px;
+}

@@ -1,0 +1,232 @@
+<div class="container">
+
+    <div class="row">
+      <div class="col-md-2"></div>
+  
+      <div class="col-md-8">
+        <form #applicationForm="ngForm" [formGroup]="reactiveApplicantForm" autocomplete="off">
+  
+          <div class="card">
+  
+            <div class="card-header text-center">
+              <button type="button" class="btn btn-info btn-lg">Application Form
+              </button>
+            </div>
+            <div class="card-body">
+            
+              <div class="form-group">
+                <input type="hidden" class="form-control" id="id"  formControlName="id">
+              </div>
+  
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <select name="title" class="form-control"  formControlName="title">
+                      <option value="Mr">Mr</option>
+                      <option value="Mrs">Mrs</option>
+                      <option value="Miss">Miss</option>
+                      <option value="Ms">Ms</option>
+                    </select>
+                  </div>
+                </div>
+  
+  
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <div class="d-flex flex-row">
+                      <input type="text" class="form-control" id="applicantName" 
+                        name="applicantName" ngModel formControlName="applicantName" placeholder="Full Name">
+                      <div
+                        *ngIf="reactiveApplicantForm.controls.applicantName.errors && (reactiveApplicantForm.controls.applicantName.touched || reactiveApplicantForm.controls.applicantName.dirty)"
+                        style=color:red;>
+                        <div *ngIf="reactiveApplicantForm.hasError('required', 'applicantName')">
+                          <h6> Applicant Name is required</h6>
+                        </div>
+                        <div *ngIf="reactiveApplicantForm.hasError('pattern', 'applicantName')">
+                          <h6> Applicant Name is invalid formate</h6>
+                        </div>
+                        <div *ngIf="reactiveApplicantForm.hasError('minlength', 'applicantName')">
+                          <h6> Applicant Name must be 3 charactors length</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+              <div class="d-flex flex-row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="email" name="email" 
+                      formControlName="email" placeholder="email">
+                    <div
+                      *ngIf="reactiveApplicantForm.controls.email.errors && (reactiveApplicantForm.controls.email.touched || reactiveApplicantForm.controls.email.dirty)"
+                      style=color:red;>
+                      <div *ngIf="reactiveApplicantForm.hasError('required', 'email')">
+                        <h6> Email is required</h6>
+                      </div>
+                      <div *ngIf="reactiveApplicantForm.hasError('pattern', 'email')">
+                        <h6>Email is invalid formate</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+  
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="phoneNumber"  name="phoneNumber"
+                       formControlName="phoneNumber" placeholder="Phone number">
+                    <div
+                      *ngIf="reactiveApplicantForm.controls.phoneNumber.errors && (reactiveApplicantForm.controls.phoneNumber.touched || reactiveApplicantForm.controls.phoneNumber.dirty)"
+                      style=color:red;>
+                      <div *ngIf="reactiveApplicantForm.hasError('required', 'phoneNumber')">
+                        <h6>Phone Number is required</h6>
+                      </div>
+                      <div *ngIf="reactiveApplicantForm.hasError('pattern', 'phoneNumber')">
+                        <h6> Phone Number is invalid</h6>
+                      </div>
+                      <div *ngIf="reactiveApplicantForm.hasError('minlength', 'phoneNumber')">
+                        <h6> Phone Number must be 10 digits</h6>
+                      </div>
+                      <div *ngIf="reactiveApplicantForm.hasError('maxlength', 'phoneNumber')">
+                        <h6> Phone Number can not be exit 14 digits</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+              <div class="d-flex flex-row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label>D.O.B </label>
+                      </div>
+                      <div class="col-md-9">
+                        <input class="pickdate" type="date" name="dateOfBirth" name="dateOfBirth"
+                           formControlName="dateOfBirth">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+  
+  
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <label for="gender">
+                          gender
+                        </label>
+                      </div>
+                      <div class="col-md-10">
+                        <select class="drops" name="gender" id="gender" 
+                          formControlName="gender">
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+  
+  
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="businessName" 
+                      name="businessName"  formControlName="businessName" placeholder="business name">
+                    <div
+                      *ngIf="reactiveApplicantForm.controls.businessName.errors && (reactiveApplicantForm.controls.businessName.touched || reactiveApplicantForm.controls.businessName.dirty)"
+                      style=color:red;>
+                      <div *ngIf="reactiveApplicantForm.hasError('required', 'businessName')">
+                        <h6> business name is required</h6>
+                      </div>
+                      <div *ngIf="reactiveApplicantForm.hasError('pattern', 'businessName')">
+                        <h6> business name is invalid</h6>
+                      </div>
+                      <div *ngIf="reactiveApplicantForm.hasError('minlength', 'businessName')">
+                        <h6> business name must be 10 digits </h6>
+                      </div>
+                      <div *ngIf="reactiveApplicantForm.hasError('maxlength', 'businessName')">
+                        <h6> business model can not be exit 14 digits </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+  
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input class="form-control" id="address"  name="address"
+                      formControlName="address" placeholder="full address">
+                  </div>
+                </div>
+              </div>
+  
+  
+              <div class="form-group">
+                <textarea class="form-control"  id="purpose"  name="purpose" 
+                  formControlName="purpose" placeholder="purpose"></textarea>
+              </div>
+
+              <div class="form-group">
+                  <textarea class="form-control" rows="2" id="briefIntroduction"  name="briefIntroduction" 
+                    formControlName="briefIntroduction" placeholder="brief Introduction your self"></textarea>
+                </div>
+
+              
+              <div class="form-group">
+                <textarea class="form-control" rows="5" id="about"  name="about" 
+                  formControlName="about" placeholder="write here what you are going to apply"></textarea>
+              </div>
+  
+  
+  
+  
+              <div class="row">
+            
+  
+  
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Your Pic</label>
+                    </div>
+                    <div class="col-md-9">
+                      <div class="form-group">
+                        <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                          style="height:100%" name="fileName"  formControlName="fileName">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+              <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-lg btn-success" (click)="saveApplicant(reactiveApplicantForm)"
+                    [disabled]="!applicationForm.valid">Submit</button>
+                </div>
+              </div>
+  
+  
+  
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>

@@ -1,0 +1,103 @@
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <table class="table table-bordered row-border hover display text-nowrap">
+          <thead>
+            <tr>
+              <div class="card-header">
+                <div class="text-center">
+                  AVAILABLE SUBCATEGORY
+                </div>
+              </div>
+            </tr>
+          </thead>
+          <tbody>
+            <div class="card-body">
+              <tr *ngFor="let category of subcategorybyid">
+                <td><b>{{category.subCategoryName}}</b></td>
+              </tr>
+              <br>
+              <tr>
+                <button type="button" class="btn btn-info"><a routerLink="/list_category"> <span
+                      style="color: white;">
+                      Edit Category </span></a></button>
+              </tr>
+            </div>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <!--
+    <div class="col-md-6">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="text-center">
+            CREATE NEW SUB CATEGORY
+          </div>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="subcategoryForm">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Name</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" placeholder="category name" formControlName="subCategoryName" required>
+                  <div class="alert-danger"
+                    *ngIf="!subcategoryForm.controls['subCategoryName'].valid && (subcategoryForm.controls['subCategoryName'].touched)">
+                    <div [hidden]="!subcategoryForm.controls['subCategoryName'].errors.required">
+                      Sub Category Name is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>description</label>
+                </div>
+                <div class="col-md-8">
+                  <textarea type="text" class="form-control" placeholder="category description"
+                    formControlName="description">
+                  <div class="alert-danger"
+                    *ngIf="!subcategoryForm.controls['description'].valid && (subcategoryForm.controls['description'].touched)">
+                    <div [hidden]="!subcategoryForm.controls['description'].errors.required">
+                      descriptionription is required.
+                    </div>
+                    <div [hidden]="!subcategoryForm.controls['description'].errors.minlength">
+                      descriptionription must be have 10 character length.
+                    </div>
+                    <div [hidden]="!subcategoryForm.controls['description'].errors.maxlength">
+                      descriptionription must be have 1000 character length.
+                    </div>
+                  </div>
+                </textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-9"></div>
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" [disabled]="!subcategoryForm.valid"
+                  (click)="saveSubCategory(subcategoryForm)">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+-->
+    <div class="col-md-3"></div>
+  </div>
+</div>

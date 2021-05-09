@@ -1,0 +1,124 @@
+<div class="container">
+    <div class="text-center">
+      <button type="button" class="btn btn-info btn-sm"><a routerLink="/list_investment_allocate"> <span
+            style="color: white;">LIST INVESTMENT ALLOCATE
+          </span></a></button>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <input type="text" [(ngModel)]="searchInvestment" class="form-control" placeholder="Search . . ." />
+          <table class="table table-bordered row-border hover display text-nowrap">
+            <thead>
+              <tr>
+                <th scope="col" style="width:10px;">Photo</th>
+                <th scope="col" style="width:10px;">Name</th>
+                <th scope="col" style="width:10px;">Choose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let investment of investments | investment:searchInvestment">
+                <td>
+                  <img src="{{ investmentPicture+investment.fileName }}" class="image" />
+                <td>
+                  <b>
+                    <p class="btn-ms" [ngStyle]="{'background-color': getColor(investment.id)}">
+                      {{investment.investmentName}}
+                    </p>
+                  </b>
+                </td>
+                <td>
+                  <button [ngStyle]="{'background-color': getColor(investment.id)}" class="btn btn-success btn-sm"
+                    (click)="selectedInvestment(investment.id)">
+                    select to update
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+  
+  
+      <div class="col-md-6">
+        <form #investmentfinanceForm="ngForm">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title text-center">
+                 Update INVESTMENT Finance
+                </div>
+              </div>
+              <div class="card-body">
+    
+                <div class="form-group">
+                  <input type="hidden" class="form-control" id="id" [(ngModel)]="data.id" name="id" >
+                </div>
+    
+    
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <div class="col">
+                      <label>purpose</label>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" name="purpose" [(ngModel)]="data.purpose">
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <div class="col">
+                      <label>Allocate Amount</label>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" name="allocatedAmount" [(ngModel)]="data.allocatedAmount" >
+                    </div>
+                  </div>
+                </div>
+    
+    
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <div class="col">
+                      <label>Allocate Date</label>
+                    </div>
+                    <div class="col">
+                      <input class="pickdate" type="date" name="allocateDate" [(ngModel)]="data.allocateDate"  >
+                    </div>
+                  </div>
+                </div>
+    
+
+                <div class="form-group">
+                    <div class="d-flex flex-row">
+                      <div class="col">
+                        <label>description</label>
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" name="description" [(ngModel)]="data.description">
+                      </div>
+                    </div>
+                  </div>
+
+    
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-4">
+                      <button type="submit" class="btn btn-lg btn-success" (click)="updateinvestmentallocate(data)"
+                        [disabled]="!investmentfinanceForm.valid">update</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+    </div>
+  
+    
+    <div class="col-md-2"></div>
+  </div>
+  </div>

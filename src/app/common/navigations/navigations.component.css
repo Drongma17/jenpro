@@ -1,0 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Pacifico|Righteous|Roboto|Roboto+Condensed|Ubuntu&display=swap');
+
+nav{
+    background-color: rgb(90, 168, 241);
+}
+
+.imagesize {
+    height: 28px;
+    width: 28px;
+}
+
+.nav-link:hover {
+    color: #00E8E8 !important;
+ }
+
+ nav .dropdown:hover .dropdown-menu {
+    display: block;
+    width: 50px;
+    line-height: 25px;
+    float: left;
+    background-color: rgb(90, 168, 241);
+}
+
+
+
+@media (min-width: 768px) {  
+    nav .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+      border-radius:0;
+     }
+    }
+
+.rightjustify{
+    margin-right: 15px;
+}
+
+.space {
+    height: 13px;
+}
+
+.navbartextsize {
+    font-size: 18px;
+}

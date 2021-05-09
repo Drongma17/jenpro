@@ -1,0 +1,101 @@
+<br>
+<div class="container">
+    <div class="text-center">
+        <button class="btn btn-lg btn-primary"><a [routerLink]="['/list_ba_finance']" style="color: white;">LIST BA FINANCE</a> </button>
+    </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <input type="text" [(ngModel)]="searchBusinessac" class="form-control" placeholder="Search . . ." />
+        <table class="table table-bordered row-border hover display text-nowrap">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 10px;">Photo</th>
+              <th scope="col" style="width: 20px;">Name</th>
+              <th scope="col" style="width: 10px;">Choose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let businessac of businessacs | businessac:searchBusinessac ">
+              <td><img src="{{ businessacPicture+businessac.fileName }}" class="image" /></td>
+              <td><b>
+                  <p class="btn-sm" [ngStyle]="{'background-color':getColor(businessac.id)}">
+                    {{businessac.businessacName}}</p>
+                </b> </td>
+              <td> <button [ngStyle]="{'background-color':getColor(businessac.id)}" class="btn btn-primary btn-sm"
+                (click)="selectedBusinessac(businessac.id)">select</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+        <form #financeForm="ngForm">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title text-center">
+                 Update BA Finance
+                </div>
+              </div>
+              <div class="card-body">
+    
+                <div class="form-group">
+                  <input type="hidden" class="form-control" id="id" [(ngModel)]="data.id" name="id" >
+                </div>
+    
+    
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <div class="col">
+                      <label>purpose</label>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" name="purpose" [(ngModel)]="data.purpose">
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <div class="col">
+                      <label>Disburse Amount</label>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" name="disburseAmount" [(ngModel)]="data.disburseAmount" >
+                    </div>
+                  </div>
+                </div>
+    
+    
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <div class="col">
+                      <label>Disburse Date</label>
+                    </div>
+                    <div class="col">
+                      <input class="pickdate" type="date" name="disburseDate" [(ngModel)]="data.disburseDate"  >
+                    </div>
+                  </div>
+                </div>
+    
+    
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-4">
+                      <button type="submit" class="btn btn-lg btn-success" (click)="updateBusinessacFinance(data)"
+                        [disabled]="!financeForm.valid">update</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+    </div>
+
+    
+    <div class="col-md-2"></div>
+  </div>
+</div>

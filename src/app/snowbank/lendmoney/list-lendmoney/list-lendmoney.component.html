@@ -1,0 +1,82 @@
+<br>
+<div class="container">
+  <div class="text-center">
+    <button class="btn btn-lg btn-primary"><a [routerLink]="['/list_snowbank']" style="color: white;">LIST TED CONFERENCE</a> </button>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <input type="text" [(ngModel)]="searchSnowbank" class="form-control" placeholder="search...">
+        <table class="table table-bordered row-border hover display text-nowrap">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 10px;">Photo</th>
+              <th scope="col" style="width: 20px;">Name</th>
+              <th scope="col" style="width: 10px;">Choose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let snowbank of snowbanks | snowbank:searchSnowbank ">
+              <td><img src="{{ snowbankPicture+snowbank.fileName }}" class="image" /></td>
+              <td><b>
+                  <p class="btn-sm" [ngStyle]="{'background-color':getColor(snowbank.id)}">
+                    {{snowbank.customerName}}</p>
+                </b> </td>
+              <td> <button [ngStyle]="{'background-color':getColor(snowbank.id)}" class="btn btn-primary btn-sm"
+                  (click)="getAllLendMoneyOfSnowbank(snowbank.id)">show</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <div class="card">
+        <table class="table table-bordered row-border hover display text-nowrap">
+
+          <thead>
+            <tr>
+              <th scope="col">PURPOSE</th>
+              <th scope="col">ALLOCATE AMOUNT</th>
+              <th scope="col">ALLOCATE DATE</th>
+              <th scope="col" class="updateheads">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let lendmoney of lendmoneys">
+              <td>{{lendmoney.purpose}}</td>
+              <td>{{lendmoney.lendAmount}}</td>
+              <td>{{lendmoney.lendDate | date :  "dd-MM-y" }}</td>
+              <td>
+                <a><button type="button" class="btn btn-primary"
+                    [routerLink]="['/update_lendmoney_snowbank', lendmoney.id]" class="updatecolre"><i
+                      class="fas fa-edit"></i> </button></a>
+                <a><button type="button" class="btn btn-danger" (click)="deleteLendmoney(lendmoney.id, formRefreshi)"
+                    class="deletecolr"><i class="fas fa-trash-alt"></i></button></a>
+              </td>
+            </tr>
+            <tr>
+              <th>Total Allocated</th>
+              <th>{{grandTotal}}</th>
+              <th>
+              </th>
+              <th>
+                <button type="button" class="btn btn-primary btn-sm"><a [routerLink]="['/create_lendmoney_snowbank']"
+                    style="color: white;">add</a></button>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br>
+
+     
+    </div>
+
+    <div class="col-md-2"></div>
+  </div>
+</div>

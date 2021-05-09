@@ -1,0 +1,77 @@
+
+    <body>
+            <div class="row" style=" margin-bottom:15px;">
+                <div class="col-md-3">
+                    <span class="title1">
+                        <button class="btn btn-primary btn-md">TIBETAN</button>
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="searchInvestment" class="form-control" style="width: 100%;"
+                        placeholder="Search investment...">
+                </div>
+                <div class="col-md-3">
+                    <span class="title2"> <button class="btn btn-primary btn-md">INVESTMENT</button> </span>
+                </div>
+            </div>
+        
+            <div class="col-md-12">
+                <div *ngFor="let investment of investments |investment:searchInvestment ">
+        
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <span class="btn btn-outline-primary">
+                                    <a [routerLink]="['/single_investment', investment.id]">
+                                <b> {{investment.title}} {{investment.investmentName}} </b> </a>  </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-row">
+                                <div class="col-md-6">
+                                    <div class="d-flex flex-row">
+                                        <div class="flex col-md-6">
+                                                <a [routerLink]="['/single_investment', investment.id]">
+                                                <img src="{{investment_IMAGE+investment.fileName }}" class="image"
+                                                    alt="not found">
+                                            </a>
+                                        </div>
+                                        <div class="flex col-md-6 text-center">
+                                            <b> PHONE NUMBER : </b>
+                                            <br>
+                                             {{investment.phoneNumber}}
+                                            <br>
+                                            <hr>
+                                            <b> BUSINESS ADDRESS : </b>
+                                            <br>
+                                            {{investment.address}}
+                                        </div>
+        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <b>{{investment.title}} {{investment.investmentName}} ::</b>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="col-md-12">
+                                            {{investment.briefIntroduction}}
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="card-header text-center">
+                            <span class="btn btn-outline-primary">
+                                    <a [routerLink]="['/single_investment', investment.id]">
+                                <b> {{investment.businessName}} </b> </a></span>
+                        </div>
+                    </div>
+                 <b>  <hr> </b> 
+                </div>
+            </div>
+        
+        
+        </body>

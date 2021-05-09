@@ -1,0 +1,22 @@
+<body>
+    <!-- <div class="row" style="margin-top:15px; margin-bottom:15px;">
+        <div class="col-md-6 offset-3">
+            <input type="text" [(ngModel)]="searchgallery" class="form-control" style="width: 100%;"
+                placeholder="Search photoes...">
+        </div>
+    </div> -->
+
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12"
+            *ngFor="let gallery of allgalleries ">
+            <div class="card">
+                <img src="{{publicGallery_URL+gallery.fileName }}" class="img-responsive img-thumbnail"
+                    alt="Cinque Terre">
+                <div class="card-header text-center">
+                    <a [routerLink]="['/detail_gallery', gallery.id]"> <span
+                            class="btn btn-outline-primary">{{gallery.subDescription}}</span> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

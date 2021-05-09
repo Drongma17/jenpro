@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-1"></div>
+
+
+    <div class="col-md-6">
+      <form #galleryForm="ngForm" [formGroup]="galleryReactiveForm" autocomplete="off">
+       
+        <div class="card">
+          <div class="card-header text-center">
+            <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_gallery"> <span
+              style="color: white;">LIST PHOTO
+            </span></a></button>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id"  name="id"
+                formControlName="id">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="photoName"  name="photoName" 
+                formControlName="photoName" placeholder="Picture Name ***">
+              <div
+                *ngIf="galleryReactiveForm.controls.photoName.errors && (galleryReactiveForm.controls.photoName.touched || galleryReactiveForm.controls.photoName.dirty)"
+                style=color:red;>
+                <div *ngIf="galleryReactiveForm.hasError('required', 'photoName')">
+                  <h6> Photo Name is required</h6>
+                </div>
+                <div *ngIf="galleryReactiveForm.hasError('pattern', 'photoName')">
+                  <h6> Photo Name is invalid formate</h6>
+                </div>
+                <div *ngIf="galleryReactiveForm.hasError('minlength', 'photoName')">
+                  <h6> Photo Name must be 3 charactors length</h6>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-5">
+                  <label>image capture date </label>
+                </div>
+                <div class="col-md-7">
+                  <input class="pickdate" type="date"  name="imageDate" 
+                    formControlName="imageDate">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="subDescription" 
+                name="subDescription"  formControlName="subDescription" placeholder="Sub Description ***">
+              <div
+                *ngIf="galleryReactiveForm.controls.subDescription.errors && (galleryReactiveForm.controls.subDescription.touched || galleryReactiveForm.controls.subDescription.dirty)"
+                style=color:red;>
+                <div *ngIf="galleryReactiveForm.hasError('required', 'subDescription')">
+                  <h6> subDescription is required</h6>
+                </div>
+                <div *ngIf="galleryReactiveForm.hasError('pattern', 'subDescription')">
+                  <h6> subDescription Name is invalid formate</h6>
+                </div>
+                <div *ngIf="galleryReactiveForm.hasError('minlength', 'subDescription')">
+                  <h6> subDescription Name must be 3 charactors length</h6>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <textarea class="form-control" rows="5" id="galleryDescription" 
+                name="galleryDescription"  formControlName="galleryDescription"
+                placeholder="descriptions"></textarea>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                    style="height:100%" name="fileName" formControlName="fileName">
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-success" (click)="saveGallery(galleryReactiveForm)"
+              [disabled]="!galleryForm.valid">Submit</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-md-5">
+
+    </div>
+  </div>

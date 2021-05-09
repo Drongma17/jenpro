@@ -1,0 +1,123 @@
+
+<body>
+  
+
+    <div class="container-fluid">
+      <div class="card">
+    
+        <div class="card-header">
+          <span class="text-center">
+            <h2> <button class="btn btn-primary btn-lg">{{data.title}} {{data.steName}} </button></h2>
+          </span>
+        </div>
+    
+        <div class="card-body">
+          <div class="text-center">
+            <img src="{{ste_IMAGE+data.fileName }}" class="img-thumbnail image">
+          </div>
+          <br>
+          <div class="d-flex flex-row">
+            <div class="col-md-6 jumbotron">
+              <div class="d-flex flex-row">
+                <div class="col-md-5">
+                  <label> <b> PHONE NUMBER : </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p> {{data.phoneNumber}}</p>
+                </div>
+              </div>
+              <hr>
+    
+              <div class="d-flex flex-row">
+                <div class="col-md-5">
+                  <label> <b> EMAIL : </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.email}}</p>
+                </div>
+              </div>
+              <hr>
+    
+              <div class="d-flex flex-row">
+                <div class="col-md-5">
+                  <label> <b>BUSINESS NAME : </b> </label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.businessName}}</p>
+                </div>
+              </div>
+              <hr>
+    
+    
+              <div class="d-flex flex-row">
+                <div class="col-md-5">
+                  <label> <b>ADDRESS : </b> </label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.address}}</p>
+                </div>
+              </div>
+    
+            </div>
+            <div class="col-md-6 jumbotron">
+              <div class="d-flex flex-row">
+                <div class="col-md-5">
+                  <label> <b> ALLOCATED AMOUNT : </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.allocatedAmount}}</p>
+                </div>
+              </div>
+              <hr>
+    
+              <div class="d-flex flex-row">
+                <div class="col-md-5">
+                  <label> <b> TOTAL DISBURSED : </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.totalDisbursed}}</p>
+                </div>
+              </div>
+              <hr>
+    
+            </div>
+          </div>
+    
+          <br>
+          <br>
+       
+          <div class="text-center">
+            <h5><b> <button class="btn btn-primary btn-lg">Brief about {{data.title}}  {{data.steName}} </button> </b></h5>
+          </div>
+          <hr>
+          <div class="d-flex flex-row">
+          <cdk-virtual-scroll-viewport itemSize="200" class="briefview">
+            <mat-card>
+              <mat-card-title>{{data.briefIntroduction}}</mat-card-title>
+            </mat-card>
+          </cdk-virtual-scroll-viewport>
+        </div>
+    
+    
+            <br>
+            <br>
+         
+            <div class="text-center">
+              <h5><b> <button class="btn btn-primary btn-lg">More Detail about {{data.title}}  {{data.steName}}'s {{data.businessName}} Business </button> </b></h5>
+            </div>
+            <hr>
+            <div class="d-flex flex-row">
+            <cdk-virtual-scroll-viewport itemSize="200" class="viewport">
+              <mat-card>
+                <mat-card-title>{{data.about}}</mat-card-title>
+              </mat-card>
+            </cdk-virtual-scroll-viewport>
+          </div>
+    
+        </div>
+    
+      </div>
+    </div>
+    
+    </body>
+    

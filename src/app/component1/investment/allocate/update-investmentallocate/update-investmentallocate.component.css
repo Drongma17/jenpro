@@ -1,0 +1,56 @@
+.card{
+    background-color: rgb(142, 175, 179);
+}
+
+
+.addEntrepreneur{
+  margin-right: 25px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.deletecolr {
+    color: red;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 10px;
+}
+.editedhead {
+    color:blue;
+    font-size: 15px;
+    text-align: center;
+}
+
+.image{
+    height: 35px;
+    width: 35px;
+    margin: 0px;
+    padding: 0px;
+    border-radius:50%;
+}
+
+.updateheads {
+    color: blue;
+   
+}
+
+.updatecolre {
+    color: rgb(9, 9, 218);
+}
+
+a:button {
+    background-color: yellow;
+  }
+
+  .changeColor{
+      color: blue;
+  }
+
+  .first{
+      height: 10px;
+      width: 100%;
+      background: red;
+  }
+
+  .second{
+      height: 10px;
+      background: #009200;
+  }

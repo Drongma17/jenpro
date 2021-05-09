@@ -1,0 +1,113 @@
+<br><br>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+      <form #announcement="ngForm" [formGroup]="announcementReactiveForm" autocomplete="off">
+
+
+        <div class="card">
+
+
+          <div class="card-header text-center">
+              <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_announce"> <span
+                style="color: white;">
+                ANNOUNCEMENT LIST</span> </a> 
+              </button>
+          
+          </div>
+          <div class="card-body">
+            
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id"  name="id"  formControlName="id">
+            </div>
+
+
+
+
+            <div class="form-group">
+              <div class="row">
+                <input type="text" class="form-control" id="subject"  name="subject" 
+                  formControlName="subject" placeholder="SUBJECT / TOPIC">
+                <div
+                  *ngIf="announcementReactiveForm.controls.subject.errors && (announcementReactiveForm.controls.subject.touched || announcementReactiveForm.controls.subject.dirty)"
+                  style=color:red;>
+                  <div *ngIf="announcementReactiveForm.hasError('required', 'subject')">
+                    <h6> subject Name is required</h6>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+            
+            <div class="form-group">
+              <div class="row">
+                <input type="text" class="form-control" id="title"  name="title" 
+                  formControlName="title" placeholder="Respected / Dear / Hounorable">
+                <div
+                  *ngIf="announcementReactiveForm.controls.title.errors && (announcementReactiveForm.controls.title.touched || announcementReactiveForm.controls.title.dirty)"
+                  style=color:red;>
+                  <div *ngIf="announcementReactiveForm.hasError('required', 'title')">
+                    <h6> title Name is required</h6>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <div  class="row">
+                <div class="col-md-6 offset-3">
+                   <h3>write announcement in below box</h3>  
+                </div>
+              </div>
+              <div class="row">
+                <textarea class="form-control" rows="10" id="body"  name="body" 
+                  formControlName="body"></textarea>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label>Date</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input class="pickdate" type="date" name="date" name="date" 
+                          formControlName="date">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                      style="height:100%" name="fileName"  formControlName="fileName">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-success" (click)="saveAnnounce(announcementReactiveForm)"
+              [disabled]="!announcement.valid">Submit</button>
+
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+   
+  </div>

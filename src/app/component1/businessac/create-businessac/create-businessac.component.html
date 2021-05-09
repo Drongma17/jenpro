@@ -1,0 +1,220 @@
+<br>
+
+<div class="container">
+
+  <div class="col-md-3"></div>
+
+
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header text-center">
+          <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_businessac"> <span style="color: white;">   BUSINESS ACCELERATION LIST</span></a></button>
+       
+      </div>
+      <br>
+      <form #businessForm="ngForm" [formGroup]="businessacReactiveForm" autocomplete="off">
+
+        <div class="d-flex flex-row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <select name="title" class="form-control" formControlName="title">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <div class="row">
+                <input type="text" class="form-control" id="businessacName"  name="businessacName" ngModel
+                  formControlName="businessacName" placeholder="Full Name ***">
+                <div
+                  *ngIf="businessacReactiveForm.controls.businessacName.errors && (businessacReactiveForm.controls.businessacName.touched || businessacReactiveForm.controls.businessacName.dirty)"
+                  style=color:red;>
+                  <div *ngIf="businessacReactiveForm.hasError('required', 'businessacName')">
+                    <h6> Business Accelerateion Name is required</h6>
+                  </div>
+                  <div *ngIf="businessacReactiveForm.hasError('minlength', 'businessacName')">
+                    <h6> Business Acceleration Name must be 3 charactors length</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" class="form-control" id="email"  name="email" 
+                formControlName="email" placeholder="email ***">
+              <div
+                *ngIf="businessacReactiveForm.controls.email.errors && (businessacReactiveForm.controls.email.touched || businessacReactiveForm.controls.email.dirty)"
+                style=color:red;>
+                <div *ngIf="businessacReactiveForm.hasError('required', 'email')">
+                  <h6> Email is required</h6>
+                </div>
+                <div *ngIf="businessacReactiveForm.hasError('pattern', 'email')">
+                  <h6>Email is invalid formate</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="phoneNumber"  name="phoneNumber"
+                ngModel formControlName="phoneNumber" placeholder="Phone number ***">
+              <div
+                *ngIf="businessacReactiveForm.controls.phoneNumber.errors && (businessacReactiveForm.controls.phoneNumber.touched || businessacReactiveForm.controls.phoneNumber.dirty)"
+                style=color:red;>
+                <div *ngIf="businessacReactiveForm.hasError('required', 'phoneNumber')">
+                  <h6>Phone Number is required</h6>
+                </div>
+                <div *ngIf="businessacReactiveForm.hasError('pattern', 'phoneNumber')">
+                  <h6> Phone Number is invalid</h6>
+                </div>
+                <div *ngIf="businessacReactiveForm.hasError('minlength', 'phoneNumber')">
+                  <h6> Phone Number must be 10 digits</h6>
+                </div>
+                <div *ngIf="businessacReactiveForm.hasError('maxlength', 'phoneNumber')">
+                  <h6> Phone Number can not be exit 14 digits</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>D.O.B</label>
+                </div>
+                <div class="col-md-8">
+                  <input class="pickdate" type="date" name="dateOfBirth" name="dateOfBirth" 
+                    formControlName="dateOfBirth">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="gender">
+                    gender
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <select class="drops" name="gender" id="gender"  formControlName="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="businessName"  name="businessName"
+                formControlName="businessName" placeholder="Business Name ***">
+                <div
+                *ngIf="businessacReactiveForm.controls.businessName.errors && (businessacReactiveForm.controls.businessName.touched || businessacReactiveForm.controls.businessName.dirty)"
+                style=color:red;>
+                <div *ngIf="businessacReactiveForm.hasError('required', 'businessName')">
+                  <h6>Business Name is required</h6>
+                </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="address"  name="address" 
+                formControlName="address" placeholder="address">
+            </div>
+          </div>
+        </div>
+
+      
+
+        <div class="form-group">
+          <textarea class="form-control" id="briefIntroduction"  name="briefIntroduction" 
+            formControlName="briefIntroduction" placeholder="brief introduction"></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <textarea class="form-control" rows="5" id="about"  name="about" 
+              formControlName="about" placeholder="descriptions"></textarea>
+          </div>
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-4">
+                <label>Category:</label>
+              </div>
+              <div class="col-md-8">
+                <select class="form-control"  name="baCategoryName"
+                  formControlName="baCategoryName">
+                  <option value="0">--Select--***</option>
+                  <option *ngFor="let bacategory of bacategories | async">
+                    {{bacategory.name }}
+                  </option>
+                </select>
+                <div
+                  *ngIf="businessacReactiveForm.controls.baCategoryName.errors && (businessacReactiveForm.controls.baCategoryName.touched || businessacReactiveForm.controls.baCategoryName.dirty)"
+                  style=color:red;>
+                  <div *ngIf="businessacReactiveForm.hasError('required', 'baCategoryName')">
+                    <h6> Category Name is required</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                style="height:100%" name="fileName"  ngModel formControlName="fileName">
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-lg btn-primary"
+              (click)="saveBusinessac(businessacReactiveForm)" [disabled]="!businessForm.valid">Submit</button>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-info btn-sm"><a routerLink="/create_ba_category"> <span
+                      style="color: white;">create ba category
+                    </span></a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-1"></div>
+</div>

@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+
+
+    <div class="col-md-10">
+      <div class="card">
+        <div class="card-header text-center">
+          <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_event"> <span style="color: white;"> EVENT LIST 
+            </span></a></button>
+        </div>
+        <div class="card-body">
+          <form id="formUpdateEvent" name="formUpdateEvent" #eventUpdate="ngForm">
+
+         
+         
+                <div class="form-group">
+                  <div class="row">
+                    <label class="col-md-3">Event Name</label>
+                    <div class="col-md-9">
+                      <input type="text" name="eventName"  [(ngModel)]="eventObject.eventName"
+                        class="form-control">
+                    </div>
+                  </div>
+                </div>
+          
+           
+
+                <div class="form-group">
+                    <div class="row">
+                      <label class="col-md-3">Event Vanue</label>
+                      <div class="col-md-9">
+                        <input type="text" name="eventVanue"  [(ngModel)]="eventObject.eventVanue"
+                          class="form-control">
+                      </div>
+                    </div>
+                  </div>
+            
+
+              
+
+
+            <div class="form-group">
+              <textarea class="form-control" rows="5" id="aboutEvent" [(ngModel)]="eventObject.aboutEvent" name="about">
+              </textarea>
+            </div>
+
+
+            
+          <div class="row">
+            <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <label>Date </label>
+                        </div>
+                        <div class="col-md-9">
+                          <input class="pickdate" type="date" name="eventDate" name="eventObject.eventDate" >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                      style="height:100%" name="fileName" [(ngModel)]="eventObject.fileName" >
+                  </div>
+                </div>
+              </div>
+             
+
+              <div class="form-group">
+                  <div class="col-md-5">
+                   <input class="btn btn-lg btn-primary" type="submit" (click)="updateEvents()" value="Update">
+                  </div>
+                </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="col-md-1"></div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.container {
+    margin-top: 5px;
+    padding: 5px;
+  }
+.card {
+    background-color:  #0962c9;
+    color: black;
+}

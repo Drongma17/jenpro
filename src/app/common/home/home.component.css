@@ -1,0 +1,118 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Pacifico|Righteous|Roboto|Roboto+Condensed|Ubuntu&display=swap');
+ 
+
+body{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Lato';
+}
+
+
+.card {
+    width: 20rem;
+}
+
+.section-2 .container-fluid {
+    background-image: url('/assets/images/bluesky.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.section-2 .heading-1{
+  margin-top: 5%;
+  margin-bottom: 4%;
+  font-family: 'Righteous';
+  width: 100%;
+  color: whitesmoke;
+}
+
+.section-2 .para{
+    width: 80%;
+    font-family: 'Uubuntu';
+    color: whitesmoke;
+    margin-bottom: 7%;
+}
+
+.section-2 .btn {
+    margin-bottom: 15%;
+    width: 100%;
+    padding: 2%, 5%;
+}
+
+.section-3 {
+    margin-top: 2%;
+}
+
+.section-3 i{
+    color: #00E8E8;
+}
+
+.section-3 para{
+    color: rgb(0, 0, 0, 0.59);
+}
+
+/* section 4 */
+
+.section-4 {
+    margin-top: 1%;
+}
+
+.section-4 .row .col-md-7 .col-md-5{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.section-4 a{
+    color: lightseagreen;
+    font-size: 40px;
+    text-decoration: none;
+}
+
+.section-4 .para-1{
+    color: white;
+    font-family: 'Roboto Condensed';
+    margin-top: 7%;
+    font-size: 23px;
+}
+
+.social i{
+    color: #EF5651;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 768px){
+
+    .section-1 .card{
+        width: 14rem;
+    }
+
+    .section-4 .col-md-7 img{
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .site-content .site-title{
+       font-size: 30px;
+       padding-left: 15%;
+    }
+
+    .site-content .site-btn2 {
+        display: none;
+    }
+
+
+    .site-content .site-btn1 {
+        margin-left: 15%;
+    }
+
+
+    .section-4 .col-md-5{
+        padding :0% 15%;
+    }
+
+    footer input[type="button"]{
+        margin-top: 5%;
+    }
+}

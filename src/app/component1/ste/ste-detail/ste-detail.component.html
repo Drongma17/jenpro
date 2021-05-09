@@ -1,0 +1,150 @@
+
+
+<body>
+  <div style="text-align: center;">
+      <a [routerLink]="['/list_ste']" ><button class="btn btn-primary"> LIST SKILL TO ENTERPRICE</button> </a>
+     </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3" data-spy="scroll" data-target=".scrolldata" data-offset="5" >
+          <div class="row" style="margin-bottom:15px;">
+            <div class="col-md-12">
+              <input type="text" [(ngModel)]="searchSte" class="form-control" style="width: 100%;"
+                placeholder="Search . . .">
+            </div>
+          </div>
+
+          <hr>
+          <div style="text-align: center" class="col-md-12"  class="scrolldata"
+            *ngFor="let ste of stes | ste:searchSte">
+            <div class="col-md-6">
+              <a [routerLink]="['/detail_ste', ste.id]" (click)="refresh(data.id)"><img
+                  src="{{steFile+ste.fileName }}" class="sideimage" alt="Cinque Terre"></a>
+            </div>
+            <div class="col-md-6">
+              <p>{{ste.steName}}</p>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="jumbotron">
+              <div class="col-md-12" style="text-align: center">
+                <div class="text-center">
+                  <h3>
+                    <p> <b>{{data.title}} {{data.steName}}</b></p>
+                  </h3>
+                </div>
+                <img src="{{steFile+data.fileName }}" class="image" alt="Cinque Terre">
+              </div>
+              <hr>
+  
+  
+              <div class="row">
+                <div class="col-md-5">
+                  <label> <b> EMAIL : </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.email}}</p>
+                </div>
+              </div>
+              <hr>
+  
+  
+              <div class="row">
+                <div class="col-md-5">
+                  <label> <b> PHONE NUMBER : </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.phoneNumber}}</p>
+                </div>
+              </div>
+              <hr>
+  
+  
+              <div class="row">
+                <div class="col-md-5">
+                  <label> <b> BUSINESS NAME : </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.businessName}}</p>
+                </div>
+              </div>
+              <hr>
+  
+  
+  
+  
+              <div class="row">
+                <div class="col-md-5">
+                  <label> <b>TOTAL ALLOCATED: </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.allocatedAmount}}</p>
+                </div>
+              </div>
+              <hr>
+  
+              <div class="row">
+                <div class="col-md-5">
+                  <label> <b> TOTAL DISBURSED : </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.totalDisbursed}}</p>
+                </div>
+              </div>
+              <hr>
+  
+  
+  
+              <div class="row">
+                <div class="col-md-5">
+                  <label> <b> ADDRESS : </b></label>
+                </div>
+                <div class="col-md-7">
+                  <p>{{data.address}}</p>
+                </div>
+              </div>
+  
+            </div>
+  
+  
+            <div class="text-center">
+              <h5><b> <button class="btn btn-primary btn-lg">Brief about {{data.title}} {{data.steName}}
+                  </button>
+                </b></h5>
+            </div>
+            <hr>
+            <div class="d-flex flex-row">
+              <cdk-virtual-scroll-viewport itemSize="200" class="briefview">
+                <mat-card>
+                  <mat-card-title>{{data.briefIntroduction}}</mat-card-title>
+                </mat-card>
+              </cdk-virtual-scroll-viewport>
+            </div>
+  
+  
+            <br>
+            <br>
+  
+            <div class="text-center">
+              <h5><b> <button class="btn btn-primary btn-lg">Detail about {{data.title}} {{data.steName}}'s
+                    {{data.businessName}} Business </button> </b></h5>
+            </div>
+            <hr>
+            <div class="d-flex flex-row">
+              <cdk-virtual-scroll-viewport itemSize="200" class="viewport">
+                <mat-card>
+                  <mat-card-title>{{data.about}}</mat-card-title>
+                </mat-card>
+              </cdk-virtual-scroll-viewport>
+            </div>
+          </div>
+          <hr>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </body>

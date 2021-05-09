@@ -1,0 +1,27 @@
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(232, 235, 230);
+    font-family: sans-serif;
+  }
+  
+  
+  .title1{
+    float: right;
+  }
+  
+  .title2{
+    float: left;
+  }
+  
+  
+  .image {
+  width:200px;
+  height:250px;
+  border: 1px solid #ddd;
+  border-radius: 4px; 
+  padding: 5px; 
+  }
+  
+  

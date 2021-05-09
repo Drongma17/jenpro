@@ -1,0 +1,49 @@
+<body>
+  <div class="text-center">
+      <button type="button" class="btn btn-primary"><a routerLink="/create_ehub"> <span style="color: white;"> ADD NEW EHUB</span></a></button>
+    </div>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+  class="table table-bordered row-bordered hover display text-nowrap">
+  <thead>
+      <tr>
+          <th scope="col">PHOTO</th>
+          <th scope="col">NAME</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">PHONE NO</th>
+          <th scope="col">GENDER</th>
+          <th scope="col">BUSINESSNAME</th>
+          <th scope="col">ALLOCATED</th>
+          <th scope="col">PENDING</th>
+          <th scope="col">DISBURSED</th>
+          <th scope="col" class="updateheads">ACTIONS</th>
+        </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ehub of ehubs">
+      <td>
+        <img src="{{ ehubFile+ehub.fileName }}" class="image" />
+      </td>
+      <td>  <a [routerLink]="['/detail_ehub', ehub.id]"> <span>{{ehub.ehubName}}</span> </a></td>
+      <td>{{ehub.email}}</td>
+      <td>{{ehub.phoneNumber}}</td>
+      <td>{{ehub.gender}}</td>
+      <td>{{ehub.businessName}}</td>
+      <td> <a><button type="button" class="btn btn-primary" [routerLink]="['/list_ehub_allocate']"
+        class="updatecolre">{{ehub.allocatedAmount | currency: 'INR':'symbol-narrow':'.2'}} </button></a>
+      </td>
+      <td style="color:red;"> 
+          <b>  {{ehub.allocatedAmount - ehub.totalDisbursed }}</b>
+         </td>
+      <td> <a><button type="button" class="btn btn-primary" [routerLink]="['/list_ehub_finance']"
+        class="updatecolre">{{ehub.totalDisbursed | currency: 'INR':'symbol-narrow':'.2'}} </button></a>
+      </td>
+        <td>
+          <a><button type="button" class="btn btn-primary" [routerLink]="['/update_ehub', ehub.id]"
+              class="updatecolre"><i class="fas fa-edit"></i> </button></a>
+          <a><button type="button" class="btn btn-danger" (click)="deleteEhub(ehub.id)"
+              class="deletecolr"><i class="fas fa-trash-alt"></i></button></a>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</body>

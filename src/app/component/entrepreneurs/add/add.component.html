@@ -1,0 +1,251 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+      <form #entreForm="ngForm" [formGroup]="entrepreneurReactiveForm" autocomplete="off">
+
+
+        <div class="card">
+
+          <div class="card-header text-center">
+            <button type="button" class="btn btn-info btn-lg"><a routerLink="/list_pre_incubation"> <span
+              style="color: white;">List Pre-Incubation
+            </span></a></button>
+          </div>
+          <div class="card-body">
+            
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id" name="id"  formControlName="id">
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select name="title" class="form-control"  formControlName="title">
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Ms">Ms</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="col-md-8">
+                <div class="form-group">
+                  <div class="d-flex flex-row">
+                    <input type="text" class="form-control" id="entrepreneurName"
+                      name="entrepreneurName"  formControlName="entrepreneurName" placeholder="Full Name ***">
+                    <div
+                      *ngIf="entrepreneurReactiveForm.controls.entrepreneurName.errors && (entrepreneurReactiveForm.controls.entrepreneurName.touched || entrepreneurReactiveForm.controls.entrepreneurName.dirty)"
+                      style=color:red;>
+                      <div *ngIf="entrepreneurReactiveForm.hasError('required', 'entrepreneurName')">
+                        <h6> Entrepreneur Name is required</h6>
+                      </div>
+                      <div *ngIf="entrepreneurReactiveForm.hasError('pattern', 'entrepreneurName')">
+                        <h6> Entrepreneur Name is invalid formate</h6>
+                      </div>
+                      <div *ngIf="entrepreneurReactiveForm.hasError('minlength', 'entrepreneurName')">
+                        <h6> Entrepreneur Name must be 3 charactors length</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="d-flex flex-row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" name="email"
+                    formControlName="email" placeholder="email ***">
+                  <div
+                    *ngIf="entrepreneurReactiveForm.controls.email.errors && (entrepreneurReactiveForm.controls.email.touched || entrepreneurReactiveForm.controls.email.dirty)"
+                    style=color:red;>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('required', 'email')">
+                      <h6> Email is required</h6>
+                    </div>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('pattern', 'email')">
+                      <h6>Email is invalid formate</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="phoneNumber"  name="phoneNumber"
+                     formControlName="phoneNumber" placeholder="Phone number ***">
+                  <div
+                    *ngIf="entrepreneurReactiveForm.controls.phoneNumber.errors && (entrepreneurReactiveForm.controls.phoneNumber.touched || entrepreneurReactiveForm.controls.phoneNumber.dirty)"
+                    style=color:red;>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('required', 'phoneNumber')">
+                      <h6>Phone Number is required</h6>
+                    </div>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('pattern', 'phoneNumber')">
+                      <h6> Phone Number is invalid</h6>
+                    </div>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('minlength', 'phoneNumber')">
+                      <h6> Phone Number must be 10 digits</h6>
+                    </div>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('maxlength', 'phoneNumber')">
+                      <h6> Phone Number can not be exit 14 digits</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="d-flex flex-row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>D.O.B </label>
+                    </div>
+                    <div class="col-md-9">
+                      <input class="pickdate" type="date" name="dateOfBirth" name="dateOfBirth"
+                        formControlName="dateOfBirth">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="gender">
+                        gender
+                      </label>
+                    </div>
+                    <div class="col-md-10">
+                      <select class="drops" name="gender" id="gender" 
+                        formControlName="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="businessName" 
+                    name="businessName"  formControlName="businessName" placeholder="name of business ***">
+                  <div
+                    *ngIf="entrepreneurReactiveForm.controls.businessName.errors && (entrepreneurReactiveForm.controls.businessName.touched || entrepreneurReactiveForm.controls.businessName.dirty)"
+                    style=color:red;>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('required', 'businessName')">
+                      <h6> business name is required</h6>
+                    </div>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('pattern', 'businessName')">
+                      <h6> business name is invalid</h6>
+                    </div>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('minlength', 'businessName')">
+                      <h6> business name must be 10 digits </h6>
+                    </div>
+                    <div *ngIf="entrepreneurReactiveForm.hasError('maxlength', 'businessName')">
+                      <h6> business model can not be exit 14 digits </h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+
+              
+  
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <input class="form-control" id="address"  name="address"
+                      formControlName="address" placeholder="full address">
+                  </div>
+                </div>
+              </div>
+            
+
+            
+                  <div class="form-group">
+                      <input class="form-control" id="briefIntroduction"  name="briefIntroduction"
+                        formControlName="briefIntroduction" placeholder="brief introduction ">
+                    </div>
+                
+                
+
+
+            <div class="form-group">
+              <textarea class="form-control" rows="5" id="about" name="about"
+                formControlName="about" placeholder="descriptions"></textarea>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Category:*</label>
+                  </div>
+                  <div class="col-md-8">
+                    <select class="form-control"  name="categoryName"
+                      formControlName="categoryName">
+                      <option value="0">--Select--***</option>
+                      <option *ngFor="let pre of categories | async">
+                        {{pre.name }}
+                      </option>
+                    </select>
+                    <div
+                      *ngIf="entrepreneurReactiveForm.controls.categoryName.errors && (entrepreneurReactiveForm.controls.categoryName.touched || entrepreneurReactiveForm.controls.categoryName.dirty)"
+                      style=color:red;>
+                      <div *ngIf="entrepreneurReactiveForm.hasError('required', 'categoryName')">
+                        <h6> Category Name is required</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                    style="height:100%" name="fileName"  formControlName="fileName">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-lg btn-success"
+                  (click)="saveEntrepreneurs(entrepreneurReactiveForm)" [disabled]="!entreForm.valid">Submit</button>
+
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-6"></div>
+                  <div class="col-md-6">
+                    <button type="button" class="btn btn-info btn-sm"><a routerLink="/create_category"> <span
+                          style="color: white;">create category
+                        </span></a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>

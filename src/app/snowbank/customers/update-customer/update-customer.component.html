@@ -1,0 +1,222 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>
+  
+  
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header text-center">
+              <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_snowbank"> <span
+                style="color: white;">LIST TED CONFERENCE
+              </span></a></button>
+          </div>
+          <div class="card-body">
+            <form id="snowbankFormUpdate" name="snowbankFormUpdate" >
+  
+              <div class="form-group">
+                <input type="hidden" class="form-control" id="id" [(ngModel)]="snowbankObject.id" name="id" >
+              </div>
+  
+  
+              <div class="row">
+                <div class="col-md-6">
+  
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="col-md-3"> Title</label>
+                      <div class="col-md-9">
+                        <select name="title" class="form-control"  [(ngModel)]="snowbankObject.title">
+                          <option value="Mr">Mr</option>
+                          <option value="Mrs">Mrs</option>
+                          <option value="Miss">Miss</option>
+                          <option value="Ms">Ms</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="col-md-3"> Name</label>
+                      <div class="col-md-9">
+                        <input type="text" name="customerName"
+                          [(ngModel)]="snowbankObject.customerName" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="col-md-3"> Email</label>
+                      <div class="col-md-9">
+                        <input type="text" name="email"  [(ngModel)]="snowbankObject.email"
+                          ngModel class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label>Ph No:</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" name="phoneNumber" placeholder="phoneNumber"
+                          [(ngModel)]="snowbankObject.phoneNumber" ngModel class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label>D.O.B </label>
+                      </div>
+                      <div class="col-md-9">
+                        <input class="pickdate" type="date" name="dateOfBirth" name="dateOfBirth"
+                          [(ngModel)]="snowbankObject.dateOfBirth">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label>gender</label>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <input type="radio" id="male" name="gender" [(ngModel)]="snowbankObject.gender" value="male">
+                            <label for="male">
+                              <h6>Male</h6>
+                            </label>
+                          </div>
+                          <div class="col-md-5">
+                            <input type="radio" id="female" name="gender" [(ngModel)]="snowbankObject.gender" value="female">
+                            <label for="female">
+                              <h6>Female</h6>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+  
+  
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="businessName" name="businessName"
+                        [(ngModel)]="snowbankObject.businessName">
+                  </div>
+                </div>
+  
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input class="form-control" id="accountHolderName" name="accountHolderName"
+                      [(ngModel)]="snowbankObject.accountHolderName">
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+  
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input class="form-control" id="accountNumber" name="accountNumber" 
+                    [(ngModel)]="snowbankObject.accountNumber">
+                  </div>
+                </div>
+  
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input class="form-control" id="ifscCode" name="ifscCode" 
+                    [(ngModel)]="snowbankObject.ifscCode">
+                  </div>
+                </div>
+              </div>
+  
+  
+              <div class="form-group">
+                <input class="form-control" id="address" name="address" 
+                [(ngModel)]="snowbankObject.address">
+              </div>
+
+              <div class="form-group">
+                <textarea class="form-control"  id="briefIntroduction" name="briefIntroduction"
+                [(ngModel)]="snowbankObject.briefIntroduction"></textarea>
+              </div>
+  
+
+
+              <div class="form-group">
+                <textarea class="form-control" rows="5" id="about" name="about"
+                [(ngModel)]="snowbankObject.about"></textarea>
+              </div>
+  
+     
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-4">
+                        <label>Category:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select class="form-control" [(ngModel)]="snowbankObject.sbCategoryName"  name="sbCategoryName">
+                            <option value="0">--Select--</option>
+                            <option *ngFor="let category of sbcategories | async" >
+                                {{category.categoryName }}
+                            </option>
+                          </select>
+                    </div>
+                  </div>
+                </div>
+  
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                      style="height:100%" name="fileName" >
+                  </div>
+                </div>
+              </div>
+
+
+  
+              <div class="form-group">
+                <div class="col-md-5">
+                  <input class="btn btn-lg btn-primary" type="submit" (click)="updateSnowbank()" value="Update">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+      </div>
+  
+    
+    </div>
+  </div>

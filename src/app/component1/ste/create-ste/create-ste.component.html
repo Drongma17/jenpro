@@ -1,0 +1,222 @@
+<br>
+
+<div class="container">
+
+  <div class="col-md-3"></div>
+
+
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header text-center">
+          <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_ste"> <span style="color: white;">  LIST STE FORM</span></a></button>
+      </div>
+      <br>
+      <form #steForm="ngForm" [formGroup]="steReactiveForm" autocomplete="off">
+
+        <div class="d-flex flex-row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <select name="title" class="form-control"  formControlName="title">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <div class="row">
+                <input type="text" class="form-control" id="steName"  name="steName" 
+                  formControlName="steName" placeholder="Full Name ***">
+                <div
+                  *ngIf="steReactiveForm.controls.steName.errors && (steReactiveForm.controls.steName.touched || steReactiveForm.controls.steName.dirty)"
+                  style=color:red;>
+                  <div *ngIf="steReactiveForm.hasError('required', 'steName')">
+                    <h6> STE Name is required</h6>
+                  </div>
+                  <div *ngIf="steReactiveForm.hasError('minlength', 'steName')">
+                    <h6> STE Name must be 3 charactors length</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" class="form-control" id="email"  name="email" 
+                formControlName="email" placeholder="email ***">
+              <div
+                *ngIf="steReactiveForm.controls.email.errors && (steReactiveForm.controls.email.touched || steReactiveForm.controls.email.dirty)"
+                style=color:red;>
+                <div *ngIf="steReactiveForm.hasError('required', 'email')">
+                  <h6> Email is required</h6>
+                </div>
+                <div *ngIf="steReactiveForm.hasError('pattern', 'email')">
+                  <h6>Email is invalid formate</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="phoneNumber"  name="phoneNumber"
+                formControlName="phoneNumber" placeholder="Phone number ***">
+              <div
+                *ngIf="steReactiveForm.controls.phoneNumber.errors && (steReactiveForm.controls.phoneNumber.touched || steReactiveForm.controls.phoneNumber.dirty)"
+                style=color:red;>
+                <div *ngIf="steReactiveForm.hasError('required', 'phoneNumber')">
+                  <h6>Phone Number is required</h6>
+                </div>
+                <div *ngIf="steReactiveForm.hasError('pattern', 'phoneNumber')">
+                  <h6> Phone Number is invalid</h6>
+                </div>
+                <div *ngIf="steReactiveForm.hasError('minlength', 'phoneNumber')">
+                  <h6> Phone Number must be 10 digits</h6>
+                </div>
+                <div *ngIf="steReactiveForm.hasError('maxlength', 'phoneNumber')">
+                  <h6> Phone Number can not be exit 14 digits</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>D.O.B</label>
+                </div>
+                <div class="col-md-8">
+                  <input class="pickdate" type="date" name="dateOfBirth" name="dateOfBirth" 
+                    formControlName="dateOfBirth">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="gender">
+                    gender
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <select class="drops" name="gender" id="gender"  formControlName="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="businessName"  name="businessName"
+                formControlName="businessName" placeholder="Business Name ***">
+                <div
+                *ngIf="steReactiveForm.controls.phoneNumber.errors && (steReactiveForm.controls.phoneNumber.touched || steReactiveForm.controls.phoneNumber.dirty)"
+                style=color:red;>
+                <div *ngIf="steReactiveForm.hasError('required', 'phoneNumber')">
+                  <h6>Phone Number is required</h6>
+                </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="address" name="address" 
+                formControlName="address" placeholder="address">
+            </div>
+          </div>
+        </div>
+
+
+  
+
+        <div class="form-group">
+            <textarea class="form-control"  id="briefIntroduction"  name="briefIntroduction" 
+              formControlName="briefIntroduction" placeholder="brief introduction "></textarea>
+          </div>
+  
+
+
+        <div class="form-group">
+          <textarea class="form-control" rows="5" id="about"  name="about" 
+            formControlName="about" placeholder="descriptions"></textarea>
+        </div>
+
+
+
+        
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-4">
+                <label>Category:</label>
+              </div>
+              <div class="col-md-8">
+                <select class="form-control"  name="steCategoryName"
+                  formControlName="steCategoryName">
+                  <option value="0">--Select--***</option>
+                  <option *ngFor="let category of stecategories | async">
+                    {{category.name }}
+                  </option>
+                </select>
+                <div
+                  *ngIf="steReactiveForm.controls.steCategoryName.errors && (steReactiveForm.controls.steCategoryName.touched || steReactiveForm.controls.steCategoryName.dirty)"
+                  style=color:red;>
+                  <div *ngIf="steReactiveForm.hasError('required', 'steCategoryName')">
+                    <h6> Category Name is required</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                style="height:100%" name="fileName"  formControlName="fileName">
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="d-flex flex-row">
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-lg btn-primary"
+              (click)="saveSteProfile(steReactiveForm)" [disabled]="!steForm.valid">Submit</button>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-info btn-sm"><a routerLink="/create_ste_category"> <span
+                      style="color: white;">create ste category
+                    </span></a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  </form>
+
+</div>
+
+</div>

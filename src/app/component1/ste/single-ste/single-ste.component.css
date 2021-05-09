@@ -1,0 +1,35 @@
+
+body{
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(226, 245, 241);
+}
+
+.container-fluid {
+  font-family: sans-serif;
+}
+
+
+.image {
+  width:200px;
+  height:250px;
+  border: 1px solid #ddd;
+  border-radius: 4px; 
+  padding: 5px; 
+  }
+  
+
+.aboutwidth{
+  height: 700px;
+}
+
+.briefview{
+  height: 200px;
+  width: 100%;
+}
+.viewport {
+  height: 450px;
+  width: 100%;
+ }
+
+

@@ -1,0 +1,102 @@
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <table class="table table-bordered row-border hover display text-nowrap">
+          <thead>
+            <tr>
+              <div class="card-header">
+                <div class="text-center">
+                  AVAILABLE CATEGORIES
+                </div>
+              </div>
+            </tr>
+          </thead>
+          <tbody>
+            <div class="card-body">
+              <tr *ngFor="let category of categories">
+                <td><b>{{category.categoryName}}</b></td>
+              </tr>
+              <br>
+              <tr>
+                <button type="button" class="btn btn-info"><a routerLink="/list_snowbank_category"> <span
+                      style="color: white;">
+                      Edit Category </span></a></button>
+              </tr>
+            </div>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="text-center">
+            CREATE NEW CATEGORY
+          </div>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="categoryForm">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Name</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" placeholder="category name" formControlName="categoryName"
+                    required>
+                  <div class="alert-danger"
+                    *ngIf="!categoryForm.controls['categoryName'].valid && (categoryForm.controls['categoryName'].touched)">
+                    <div [hidden]="!categoryForm.controls['categoryName'].errors.required">
+                      Category Name is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>description</label>
+                </div>
+                <div class="col-md-8">
+                  <textarea type="text" class="form-control" placeholder="category description"
+                    formControlName="categoryDescription">
+                  <div class="alert-danger"
+                    *ngIf="!categoryForm.controls['categoryDescription'].valid && (categoryForm.controls['categoryDescription'].touched)">
+                    <div [hidden]="!categoryForm.controls['categoryDescription'].errors.required">
+                      category Description  is required.
+                    </div>
+                    <div [hidden]="!categoryForm.controls['categoryDescription'].errors.minlength">
+                      category Description  must be have 10 character length.
+                    </div>
+                    <div [hidden]="!categoryForm.controls['categoryDescription'].errors.maxlength">
+                      category Description  must be have 1000 character length.
+                    </div>
+                  </div>
+                </textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-9"></div>
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" [disabled]="!categoryForm.valid"
+                  (click)="saveCategory(categoryForm)">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

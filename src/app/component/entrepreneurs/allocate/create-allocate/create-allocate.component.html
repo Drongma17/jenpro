@@ -1,0 +1,133 @@
+<div class="container">
+    <div class="text-center">
+        <button class="btn btn-lg btn-primary"><a [routerLink]="['/list_incubation_allocate']" style="color: white;">LIST PRE-INCUBATION FINANCE</a> </button>
+    </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+
+      <div class="card">
+        <input type="text" [(ngModel)]="searchEntrepreneur" class="form-control" placeholder="Search . . ." />
+        <table class="table table-bordered row-border hover display text-nowrap">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 10px;">Photo</th>
+              <th scope="col" style="width: 20px;">Name</th>
+              <th scope="col" style="width: 10px;">Choose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let entrepreneur of preneurs | entrepreneur:searchEntrepreneur ">
+              <td><img src="{{ entrepreneurPicture+entrepreneur.fileName }}" class="image" /></td>
+              <td><b>
+                  <p class="btn-sm" [ngStyle]="{'background-color':getColor(entrepreneur.id)}">
+                    {{entrepreneur.entrepreneurName}}</p>
+                </b> </td>
+              <td> <button [ngStyle]="{'background-color':getColor(entrepreneur.id)}" class="btn btn-success btn-sm"
+                  (click)="selectedEnterp(entrepreneur.id)">click to add</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <form #allocatefinanceForm="ngForm" autocomplete="off">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title text-center">
+              Add Allocate Finance
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id" [(ngModel)]="finance.id" name="id">
+            </div>
+
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>purpose</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="purpose" [(ngModel)]="finance.purpose" ngModel>
+                </div>
+              </div>
+            </div>
+
+
+
+            
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Allocate Amount</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="allocatedAmount" [(ngModel)]="finance.allocatedAmount"
+                    ngModel>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-8">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-7">
+                    <label>Allocated Date</label>
+                  </div>
+                  <div class="col-md-5">
+                    <input class="pickdate" type="date" name="allocatedDate" [(ngModel)]="finance.allocatedDate" ngModel>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Description</label>
+                  </div>
+                  <div class="col-md-8">
+                    <textarea cols="3" class="form-control" name="description" [(ngModel)]="finance.description" ngModel> </textarea>
+                  </div>
+                </div>
+              </div>
+  
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" (click)="addAllocatedFinance(finance, allocatefinanceForm)"
+                      [disabled]="!allocatefinanceForm.valid">Submit</button>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-md-8">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-7">
+                    </div>
+                
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

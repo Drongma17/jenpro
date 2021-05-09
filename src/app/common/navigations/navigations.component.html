@@ -1,0 +1,230 @@
+<nav class="navbar navbar-expand-md navbar-light  fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tedprojectnavbar"
+    aria-controls="tedprojectnavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="tedprojectnavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+          <a class="nav-link" routerLink="/home">
+        <img src="./../assets/images/tedimage.png" class="imagesize " alt="not found" />
+      </a>
+      </li>
+
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"> <span class="navbartextsize">Pre-Incubation</span> </a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+          <div *ngFor="let pre of categories | async">
+            <a class="dropdown-item" [routerLink]="['/entrepreneurs', pre.name]">
+              {{pre.name}}
+            </a>
+          </div>
+        </div>
+      </li>
+
+
+
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><span class="navbartextsize">Investment Award</span></a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown02">
+          <div *ngFor="let investmentcategory of investmentcategories | async">
+            <a class="dropdown-item" [routerLink]="['/all_investment', investmentcategory.name]">
+              {{investmentcategory.name}}
+            </a>
+          </div>
+        </div>
+      </li>
+
+
+   
+
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><span class="navbartextsize">Entrepreneurship-Hub</span></a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown02">
+          <div *ngFor="let ehubcategory of ehubcategories | async">
+            <a class="dropdown-item" [routerLink]="['/all_ehub', ehubcategory.name]">
+              {{ehubcategory.name}}
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><span class="navbartextsize">Skills To Enterprise </span></a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown03">
+          <div *ngFor="let stecategory of stecategories | async">
+            <a class="dropdown-item" [routerLink]="['/all_ste', stecategory.name]">
+              {{stecategory.name}}
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><span class="navbartextsize">TED Conference</span></a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown09">
+          <div *ngFor="let snowbankcategory of snowbankcategories | async">
+            <a class="dropdown-item"
+            [routerLink]="['/sb_category', snowbankcategory.categoryName]">
+            {{snowbankcategory.categoryName}}
+          </a>
+          </div>
+        </div>
+      </li>
+    
+
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><span class="navbartextsize">Business Acceleration </span></a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown04">
+          <div *ngFor="let bacategory of bacategories | async">
+            <a class="dropdown-item" [routerLink]="['/detail_ba', bacategory.name]">
+              {{bacategory.name}}
+            </a>
+          </div>
+        </div>
+      </li>
+
+    
+<!-- 
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">SNOW BANK</a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown10">
+          <div *ngFor="let snowbankcategory of snowbankcategories | async">
+            <a class="dropdown-item"
+              [routerLink]="['/sb_category', snowbankcategory.categoryName]">
+              {{snowbankcategory.categoryName}}
+            </a>
+          </div>
+        </div>
+      </li> -->
+
+
+      
+
+
+      <!-- <li *ngIf="subCatogryFound" ngbDropdown class="nav-item dropdown">
+      <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">Child Category</a>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown10">
+        <div *ngFor="let bacategory of listsubCategories$ | async">
+          <label>
+            {{bacategory.subCategoryName}}
+          </label>
+        </div>
+      </div>
+    </li> 
+
+
+
+
+         
+  <li ngbDropdown class="nav-item dropdown">
+      <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">SNOW BANK</a>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown09">
+        <div *ngFor="let category of mycategories | async">
+          <label (click)="listSubCategoryById(category.id)">
+            {{category.subCategoryName}}
+          </label>
+        </div>
+
+        <div *ngIf="subCatogryFound" ngbDropdown class="nav-item dropdown rightjustify">
+              <div *ngFor="let bacategory of listsubCategories$ | async">
+                <label>
+                  {{bacategory.subCategoryName}}
+                </label>
+            </div>
+          </div>
+      </div>
+    </li>
+  
+
+       <li *ngIf="subCatogryFound" ngbDropdown class="nav-item dropdown">
+      <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">Child Category</a>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown10">
+        <div *ngFor="let bacategory of listsubCategories$ | async">
+          <label>
+            {{bacategory.subCategoryName}}
+          </label>
+        </div>
+      </div>
+    </li> -->
+
+
+
+      <!-- <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><span class="navbartextsize">Curriculum </span></a>
+         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown05">
+          <a class="dropdown-item" routerLink="/announcement">Announce</a>
+          <a class="dropdown-item" routerLink="/create_application">Application form</a>
+          <a class="dropdown-item" routerLink="/event_component">Event</a>
+          <a class="dropdown-item" routerLink="/guests">Guest</a>
+          <a class="dropdown-item" routerLink="/gallery_component">Gallery</a>
+        </div>
+      </li> -->
+
+
+    </ul>
+  </div>
+
+  <ul class="navbar-nav mr-auto">
+    <li ngbDropdown placement="top-right" class="nav-item dropdown">
+      <a ngbDropdownToggle *ngIf="currentStatus.status" class="nav-link dropdown-toggle" href="#" id="dropdown06"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="navbartextsize">TED</span></a>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown06">
+
+        <a class="dropdown-item" routerLink="/list_snowbank">TED Conference</a>
+        <a class="dropdown-item" routerLink="/list_pre_incubation">Pre-incubation</a>
+        <a class="dropdown-item" routerLink="list_ehub"> Ehub</a>
+        <a class="dropdown-item" routerLink="list_investment"> Investment</a>
+        <a class="dropdown-item" routerLink="list_ste">STE </a>
+        <a class="dropdown-item" routerLink="list_businessac">B.A</a>
+      </div>
+    </li>
+
+
+
+
+    <li ngbDropdown placement="top-right" class="nav-item dropdown">
+      <a ngbDropdownToggle *ngIf="currentStatus.status" class="nav-link dropdown-toggle" href="#" id="dropdown07"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="navbartextsize">Admin</span></a>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown07">
+          <a class="dropdown-item" routerLink="/list_user">User List</a>
+
+        <!-- <a class="dropdown-item" routerLink="/userdashboard">User</a>
+        <a class="dropdown-item" routerLink="/list_application">Applicants</a>
+        <a class="dropdown-item" routerLink="/list_announce">Announcement</a>
+        <a class="dropdown-item" routerLink="/list_event">Event</a>
+        <a class="dropdown-item" routerLink="/list_guest">Guest</a>
+        <a class="dropdown-item" routerLink="/list_gallery">Gallery</a> -->
+      </div>
+    </li>
+
+
+    <li ngbDropdown placement="top-right" class="nav-item dropdown">
+      <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </a>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown08">
+        <a *ngIf="!currentStatus.status" routerLink="/login" class="nav-link">Login</a>
+        <a *ngIf="currentStatus.status" routerLink="/logout" (click)="logout()" class="nav-link">LogOut</a>
+      </div>
+    </li>
+  </ul>
+
+</nav>
+<br>
+<br>
+<div class="space"></div>
+<router-outlet></router-outlet>

@@ -1,0 +1,76 @@
+<body>
+    <div class="row" style=" margin-bottom:15px;">
+        <div class="col-md-3">
+            <span class="title1">
+                <button class="btn btn-primary btn-md">TIBETAN</button>
+            </span>
+        </div>
+        <div class="col-md-6">
+            <input type="text" [(ngModel)]="searchincubation" class="form-control" style="width: 100%;"
+                placeholder="Search Pre-incubation...">
+        </div>
+        <div class="col-md-3">
+            <span class="title2"> <button class="btn btn-primary btn-md">PRE-INCUBATION</button> </span>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div *ngFor="let entrepreneur of entrepreneurs |entrepreneur:searchincubation ">
+
+            <div class="card">
+                <div class="card-header text-center">
+                    <span class="btn btn-outline-primary">
+                        <a [routerLink]="['/single_Entrepreneur', entrepreneur.id]">
+                            <b> {{entrepreneur.title}} {{entrepreneur.entrepreneurName}} </b> </a> </span>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-row">
+                        <div class="col-md-6">
+                            <div class="d-flex flex-row">
+                                <div class="flex col-md-6">
+                                    <a [routerLink]="['/single_Entrepreneur', entrepreneur.id]">
+                                        <img src="{{Entrepreneur_IMAGE+entrepreneur.fileName }}" class="image"
+                                            alt="not found">
+                                    </a>
+                                </div>
+                                <div class="flex col-md-6 text-center">
+                                    <b> PHONE NUMBER : </b>
+                                    <br>
+                                    {{entrepreneur.phoneNumber}}
+                                    <br>
+                                    <hr>
+                                    <b> BUSINESS ADDRESS : </b>
+                                    <br>
+                                    {{entrepreneur.address}}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <b>{{entrepreneur.title}} {{entrepreneur.entrepreneurName}} ::</b>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-12">
+                                    {{entrepreneur.briefIntroduction}}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-header text-center">
+                    <span class="btn btn-outline-primary">
+                        <a [routerLink]="['/single_Entrepreneur', entrepreneur.id]">
+                            <b> {{entrepreneur.businessName}} </b> </a> </span>
+                </div>
+            </div>
+            <b>
+                <hr>
+            </b>
+        </div>
+    </div>
+</body>

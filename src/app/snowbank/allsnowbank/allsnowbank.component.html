@@ -1,0 +1,79 @@
+<body>
+    <div class="row" style=" margin-bottom:15px;">
+        <div class="col-md-3">
+            <span class="title1">
+                <button class="btn btn-primary btn-md">TIBETAN</button>
+            </span>
+        </div>
+        <div class="col-md-6">
+            <input type="text" [(ngModel)]="searchsnowbank" class="form-control" style="width: 100%;"
+                placeholder="search snow bank customer...">
+        </div>
+        <div class="col-md-3">
+            <span class="title2"> <button class="btn btn-primary btn-md">GAME CHANGER
+            </button> </span>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div *ngFor="let snowbank of snowbanks |snowbank:searchsnowbank ">
+
+            <div class="card">
+                <div class="card-header text-center">
+                    <span class="btn btn-outline-primary">
+                            <a [routerLink]="['/single_snowbank_with_detail', snowbank.id]">
+                        <b> {{snowbank.title}} {{snowbank.customerName}} </b> </a> </span>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-row">
+                        <div class="col-md-6">
+                            <div class="d-flex flex-row">
+                                <div class="flex col-md-6">
+                                    <a [routerLink]="['/single_snowbank_with_detail', snowbank.id]">
+                                        <img src="{{snowbank_IMAGE+snowbank.fileName }}" class="image"
+                                            alt="not found">
+                                    </a>
+                                </div>
+                                <div class="flex col-md-6 text-center">
+                                    <b> PHONE NUMBER : </b>
+                                    <br>
+                                      {{snowbank.phoneNumber}}
+                                    <br>
+                                    <hr>
+                                    <b> BUSINESS ADDRESS : </b>
+                                    <br>
+                                    {{snowbank.address}}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <b>{{snowbank.title}} {{snowbank.customerName}} ::</b>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-12">
+                                    {{snowbank.briefIntroduction}}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-header text-center">
+                    <span class="btn btn-outline-primary">
+                            <a [routerLink]="['/single_snowbank_with_detail', snowbank.id]">
+                        <b> {{snowbank.businessName}} </b> </a> </span>
+                </div>
+            </div>
+            <b>
+                <hr>
+            </b>
+        </div>
+    </div>
+
+
+</body>

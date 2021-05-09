@@ -1,0 +1,47 @@
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: aqua;
+    font-family: sans-serif;
+  }
+  
+  label {
+  font-weight: bold;
+  font-size: 18px;
+  }
+  
+  .section1{
+  background-color: lightblue;
+  background-size: cover;
+  }
+  .image{
+  height: 250px;
+  width: 250px;
+  padding: 0px;
+  border-radius:50%;
+  padding-bottom: 25px;
+  }
+  
+  
+  .youcanwin{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 28px;
+  }
+  
+  .aboutwidth{
+    height: 700px;
+  }
+  
+  
+  
+  .viewport{
+    height: 350px;
+    width: 100%;
+  }
+
+
+  .purposeview{
+    height: 150px;
+    width: 100%;
+  }

@@ -1,0 +1,52 @@
+<br>
+
+<body>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <div class="text-center">
+            <button type="button" class="btn btn-primary"><a routerLink="/create_ehub_category"> <span
+                  style="color: white;"> Create New
+                Ehub  Category </span></a></button>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered row-border hover display text-nowrap">
+            <thead>
+
+              <tr>
+                <th scope="col">
+                  <h3>ID</h3>
+                </th>
+                <th scope="col">
+                  <h3>Category Name</h3>
+                </th>
+                <th scope="col">
+                  <h3>Description</h3>
+                </th>
+                <th scope="col" class="updateheads">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of ehubcategories">
+                <th scope="row">{{category.id}}</th>
+                <td><b>{{category.name}}</b></td>
+                <td>{{category.description}}</td>
+                <td>
+                  <a><button type="button" class="btn btn-primary" [routerLink]="['/update_ehub_category', category.id]"
+                      class="updatecolre"><i class="fas fa-edit"></i> </button></a>
+                  <a><button type="button" class="btn btn-danger" (click)="deleteehubCategory(category.id)"
+                      class="deletecolr"><i class="fas fa-trash-alt"></i></button></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+
+</body>

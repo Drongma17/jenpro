@@ -1,0 +1,124 @@
+<br><br>
+
+
+<div class="container">
+    <div class="text-center">
+        <button class="btn btn-lg btn-primary"><a [routerLink]="['/list_finance']" style="color: white;">LIST PRE-INCUBATION FINANCE</a> </button>
+    </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+
+      <div class="card">
+        <input type="text" [(ngModel)]="searchEntrepreneur" class="form-control" placeholder="Search . . ." />
+        <table class="table table-bordered row-border hover display text-nowrap">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 10px;">Photo</th>
+              <th scope="col" style="width: 20px;">Name</th>
+              <th scope="col" style="width: 10px;">Choose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let entrepreneur of preneurs | entrepreneur:searchEntrepreneur ">
+              <td><img src="{{ entrepreneurPicture+entrepreneur.fileName }}" class="image" /></td>
+              <td><b>
+                  <p class="btn-sm" [ngStyle]="{'background-color':getColor(entrepreneur.id)}">
+                    {{entrepreneur.entrepreneurName}}</p>
+                </b> </td>
+              <td> <button [ngStyle]="{'background-color':getColor(entrepreneur.id)}" class="btn btn-success btn-sm"
+                  (click)="selectedEnterp(entrepreneur.id)">click to add</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <form #financeForm="ngForm" autocomplete="off">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title text-center">
+              Add Finance
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="fId" [(ngModel)]="finance.fId" name="fId">
+            </div>
+
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Purpose</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="purpose" [(ngModel)]="finance.purpose" ngModel>
+                </div>
+              </div>
+            </div>
+
+
+
+            
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Disbursed Amount</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="disburseAmount" [(ngModel)]="finance.disburseAmount"
+                    ngModel>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-8">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-7">
+                    <label>Distbursed Date</label>
+                  </div>
+                  <div class="col-md-5">
+                    <input class="pickdate" type="date" name="disburseDate" [(ngModel)]="finance.disburseDate" ngModel>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" (click)="addFinance(finance, financeForm)"
+                      [disabled]="!financeForm.valid">Submit</button>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-md-8">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-7">
+                    </div>
+                
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

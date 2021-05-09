@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+
+
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">Login Form</h4>
+        </div>
+
+        <div class="jumbotron">
+          <p style="color: red;">{{message}}</p>
+          <form #userForm="ngForm" autocomplete="off">
+
+
+
+            <div class="form-group">
+              <label for="email">EMAIL</label>
+              <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email">
+            </div>
+
+            <div class="form-group">
+              <label for="password">PASSWORD</label>
+              <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password"
+                (click)="loginUser(user)">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-primary" (click)="loginUser(user)"
+                    [disabled]="!userForm.valid">submit</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
+</div>

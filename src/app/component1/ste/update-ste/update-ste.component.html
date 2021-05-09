@@ -1,0 +1,179 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+
+
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header text-center">
+            <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_ste"> <span style="color: white;">  LIST STE FORM</span></a></button>
+        </div>
+        <div class="card-body">
+          <form id="steupdate" name="ste" investmentform="ngForm">
+
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id" [(ngModel)]="id"
+                name="id" ngModel>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6">
+
+                <div class="form-group">
+                  <div class="row">
+                    <label class="col-md-3"> Title</label>
+                    <div class="col-md-9">
+                      <select name="title" class="form-control" [(ngModel)]="entrepreObj.title">
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms">Ms</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="row">
+                    <label class="col-md-3"> Name</label>
+                    <div class="col-md-9">
+                      <input type="text" name="steName" [(ngModel)]="entrepreObj.steName" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="row">
+                    <label class="col-md-3"> Email</label>
+                    <div class="col-md-9">
+                      <input type="text" name="email" [(ngModel)]="entrepreObj.email" ngModel class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Ph No:</label>
+                    </div>
+                    <div class="col-md-9">
+                      <input type="text" name="phoneNumber" placeholder="phoneNumber"
+                        [(ngModel)]="entrepreObj.phoneNumber" ngModel class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>D.O.B </label>
+                    </div>
+                    <div class="col-md-9">
+                      <input class="pickdate" type="date" name="dateOfBirth" name="dateOfBirth"
+                        [(ngModel)]="entrepreObj.dateOfBirth">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label>gender</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <input type="radio" id="male" name="gender" [(ngModel)]="entrepreObj.gender" value="male">
+                          <label for="male">
+                            <h6>Male</h6>
+                          </label>
+                        </div>
+                        <div class="col-md-5">
+                          <input type="radio" id="female" name="gender" [(ngModel)]="entrepreObj.gender" value="female">
+                          <label for="female">
+                            <h6>Female</h6>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Business</label>
+                    </div>
+                    <div class="col-md-9">
+                      <input type="text" name="businessName" placeholder="businessName"
+                        [(ngModel)]="entrepreObj.businessName" ngModel class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <textarea class="form-control" rows="1" id="address" [(ngModel)]="entrepreObj.address" name="address"
+                    placeholder="address ..."></textarea>
+                </div>
+              </div>
+            </div>
+
+
+            
+            <div class="form-group">
+              <textarea class="form-control"  id="briefIntroduction" [(ngModel)]="entrepreObj.briefIntroduction" name="brief Introduction">
+              </textarea>
+            </div>
+
+            <div class="form-group">
+                <textarea class="form-control" rows="5" id="about" [(ngModel)]="entrepreObj.about" name="about">
+                </textarea>
+              </div>
+
+            <div class="d-flex flex-row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="col-md-5">
+                    <input class="btn btn-lg btn-primary" type="submit" (click)="steUpdate()" value="Update">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                  style="height:100%" name="fileName">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

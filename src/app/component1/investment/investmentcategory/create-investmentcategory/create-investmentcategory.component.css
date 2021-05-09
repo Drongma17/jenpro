@@ -1,0 +1,11 @@
+.container {
+    margin-top: 15px;
+    padding: 15px;
+  }
+  .card {
+    background-color: rgb(121, 216, 211);
+ }
+
+.goback{
+  font-weight: bold;
+}

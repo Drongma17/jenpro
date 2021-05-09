@@ -1,0 +1,31 @@
+
+body{
+    margin-top: 8px;
+}
+
+
+.deletecolr {
+    color: red;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 10px;
+}
+.editedhead {
+    color:blue;
+    font-size: 15px;
+    text-align: center;
+}
+
+.image{
+    height: 35px;
+    width: 35px;
+}
+
+.updateheads {
+    color: blue;
+   
+}
+
+.updatecolre {
+    color: rgb(9, 9, 218);
+}

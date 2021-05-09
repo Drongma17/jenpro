@@ -1,0 +1,135 @@
+<br><br>
+<div class="container">
+  <div class="text-center">
+    <button class="btn btn-lg btn-primary"><a [routerLink]="['/list_snowbank']" style="color: white;">LIST TED CONFERENCE</a>
+    </button>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <input type="text" [(ngModel)]="searchSnowbank" class="form-control" placeholder="Search . . ." />
+        <table class="table table-bordered row-border hover display text-nowrap">
+          <thead>
+            <tr>
+              <th scope="col" style="width:10px;">Photo</th>
+              <th scope="col" style="width:10px;">Name</th>
+              <th scope="col" style="width:10px;">Choose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let snowbank of snowbanks | snowbank:searchSnowbank">
+              <td>
+                <img src="{{ snowbankFile+snowbank.fileName }}" class="image" />
+              <td>
+                <b>
+                  <p class="btn-ms" [ngStyle]="{'background-color': getColor(snowbank.id)}">
+                    {{snowbank.customerName}}
+                  </p>
+                </b>
+              </td>
+              <td>
+                <button [ngStyle]="{'background-color': getColor(snowbank.id)}" class="btn btn-success btn-sm"
+                  (click)="selectedSnowbank(snowbank.id)">
+                  click to add
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-6">
+      <form #lendmoneyForm="ngForm" autocomplete="off">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title text-center">
+              <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_lendmoney_snowbank"> <span
+                    style="color: white;"> LIST ALLOCATED 
+                  </span></a></button>
+
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id" [(ngModel)]="money.id" name="id">
+            </div>
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Purpose</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="purpose" [(ngModel)]="money.purpose">
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Allocate Amount</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="lendAmount" [(ngModel)]="money.lendAmount">
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-md-8">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-7">
+                    <label>Allocate Date</label>
+                  </div>
+                  <div class="col-md-5">
+                    <input class="pickdate" type="date" name="lendDate" [(ngModel)]="money.lendDate">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Description</label>
+                </div>
+                <div class="col-md-8">
+                  <textarea cols="3" class="form-control" name="description"
+                    [(ngModel)]="money.description"> </textarea>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="col-md-2">
+                    <button type="submit" class="btn btn-success"
+                      (click)="addLendmoneyToSnowbank(money, snowbankreactiveForm)"
+                      [disabled]="!lendmoneyForm.valid">Submit</button>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

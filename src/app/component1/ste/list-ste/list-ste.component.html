@@ -1,0 +1,51 @@
+<body>
+  <div class="text-center">
+      <button type="button" class="btn btn-primary"><a routerLink="/create_ste"> <span style="color: white;"> ADD NEW STE
+           </span></a></button>
+    </div>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+  class="table table-bordered row-border hover display text-nowrap">
+  <thead>
+      <tr>
+          <th scope="col">PHOTO</th>
+          <th scope="col">NAME</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">PHONE NO</th>
+          <th scope="col">GENDER</th>
+          <th scope="col">BUSINESSNAME</th>
+          <th scope="col">ALLOCATED</th>
+          <th scope="col">PENDING</th>
+          <th scope="col">DISBURSED</th>
+          <th scope="col" class="updateheads">ACTIONS</th>
+        </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ste of stes">
+      <td>
+        <img src="{{ steFile+ste.fileName }}" class="image" />
+      </td>
+      <td>  <a [routerLink]="['/detail_ste', ste.id]"> <span>{{ste.steName}}</span> </a></td>
+      <td>{{ste.email}}</td>
+      <td>{{ste.phoneNumber}}</td>
+      <td>{{ste.gender}}</td>
+      <td>{{ste.businessName}}</td>
+      <td> <a><button type="button" class="btn btn-primary" [routerLink]="['/list_ste_allocate']"
+        class="updatecolre">{{ste.allocatedAmount | currency: 'INR':'symbol-narrow':'.2'}} </button></a>
+      </td>
+      <td style="color:red;"> 
+          <b>  {{ste.allocatedAmount - ste.totalDisbursed }}</b>
+         </td>
+      <td> <a><button type="button" class="btn btn-primary" [routerLink]="['/list_ste_finance']"
+        class="updatecolre">{{ste.totalDisbursed | currency: 'INR':'symbol-narrow':'.2'}} </button></a>
+      </td>
+     
+        <td>
+          <a><button type="button" class="btn btn-primary" [routerLink]="['/update_ste', ste.id]"
+              class="updatecolre"><i class="fas fa-edit"></i> </button></a>
+          <a><button type="button" class="btn btn-danger" (click)="deleteste(ste.id)"
+              class="deletecolr"><i class="fas fa-trash-alt"></i></button></a>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</body>

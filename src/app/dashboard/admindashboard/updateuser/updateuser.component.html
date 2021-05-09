@@ -1,0 +1,103 @@
+<div class="container">
+
+
+  <div class="row">
+
+
+    <div class="col-md-4"></div>
+    <div class="col-md-6">
+
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">UPDATE USER FORM</h4>
+        </div>
+        <div class="jumbotron">
+          <form #userForm="ngForm" autocomplete="off">
+
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="username">USER NAME</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" [(ngModel)]="userObject.username" name="username">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="email">EMAIL</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" [(ngModel)]="userObject.email" name="email">
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="password">PASSWORD</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="password" class="form-control" id="password" [(ngModel)]="userObject.password"
+                    name="password">
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="phoneNumber">PHONE NO.</label>
+                </div>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="userObject.phoneNumber"
+                    name="phoneNumber">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="role">ROLE</label>
+                </div>
+                <div class="col-md-8">
+                  <select type="text" class="form-control" id="role" [(ngModel)]="userObject.role" name="role">
+                    <option value="">Select Role</option>
+                    <option value="USER">USER</option>
+                    <option value="ADMIN">ADMIN</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-9">
+                </div>
+                <div class="col-md-3">
+                  <button type="submit" class="btn btn-primary" (click)="updateUser(userObject)">UPDATE</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

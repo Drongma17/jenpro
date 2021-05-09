@@ -1,0 +1,22 @@
+<body>
+    <!-- <div class="row" style="margin-top:15px; margin-bottom:15px;">
+        <div class="col-md-6 offset-3">
+            <input type="text" [(ngModel)]="searchEvent" class="form-control" style="width: 100%;"
+                placeholder="Search event. . .">
+        </div>
+    </div> -->
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-6"
+            *ngFor="let event of events">
+            <div class="card">
+                <img src="{{eventFile+event.fileName }}" class="img-fluid img-thumbnail"
+                    alt="Cinque Terre">
+                <div class="card-header text-center">
+                    <a [routerLink]="['/detail_event', event.id]"> <span
+                            class="btn btn-outline-primary">{{event.eventName}}</span> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

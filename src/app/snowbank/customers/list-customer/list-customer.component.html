@@ -1,0 +1,55 @@
+
+<body>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary"><a routerLink="/create_snowbank"> <span style="color: white;"> ADD NEW
+          TED CONFERENCE</span></a></button>
+    </div>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+      class="table table-bordered row-border hover display text-nowrap">
+      <thead>
+  
+        <tr>
+          <th scope="col">PHOTO</th>
+          <th scope="col">NAME</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">PHONE NO</th>
+          <th scope="col">GENDER</th>
+          <th scope="col">BUSINESSNAME</th>
+          <th scope="col">ALLOCATED</th>
+          <th scope="col">PENDING</th>
+          <th scope="col">DISBURSED</th>
+          <th scope="col" class="updateheads">ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let snowbank of snowbanks">
+          <td>
+            <img src="{{ IMAGE_URL+snowbank.fileName }}" class="image" />
+          </td>
+          <td>  <a [routerLink]="['/detail_snowbank', snowbank.id]"> <span>{{snowbank.customerName}}</span> </a></td>
+          <td>{{snowbank.email}}</td>
+          <td>{{snowbank.phoneNumber}}</td>
+          <td>{{snowbank.gender}}</td>
+          <td>{{snowbank.businessName}}</td>
+          <td> <a><button type="button" class="btn btn-primary" [routerLink]="['/list_lendmoney_snowbank']"
+            class="updatecolre">{{snowbank.lendAmount | currency: 'INR':'symbol-narrow':'.2'}} </button></a>
+          </td>
+          <td style="color:red;"> 
+           <b>  {{snowbank.lendAmount - snowbank.totalReturned }}</b>
+          </td>
+          <td> <a><button type="button" class="btn btn-primary" [routerLink]="['/list_returnmoney_snowbank']"
+            class="updatecolre">{{snowbank.totalReturned | currency: 'INR':'symbol-narrow':'.2'}} </button></a>
+          </td>
+          <td>
+            <a><button type="button" class="btn btn-primary" [routerLink]="['/update_snowbank', snowbank.id]"
+                class="updatecolre"><i class="fas fa-edit"></i> </button></a>
+            <a><button type="button" class="btn btn-danger" (click)="deletesnowbank(snowbank.id)"
+                class="deletecolr"><i class="fas fa-trash-alt"></i></button></a>
+          </td>
+  
+        </tr>
+  
+      </tbody>
+    </table>
+  
+  </body>

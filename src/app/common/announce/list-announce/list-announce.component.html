@@ -1,0 +1,36 @@
+<body>
+  <div class="text-center">
+    <button type="button" class="btn btn-primary"><a routerLink="/add_announce"> <span style="color: white;"> CREATE ANNOUNCEMENT
+           </span></a></button>
+  </div>
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+    class="table table-bordered row-border hover display text-nowrap">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">PHOTO</th>
+        <th scope="col">SUBJECT</th>
+        <th scope="col">TITLE</th>
+        <th scope="col">DATE</th>
+        <th scope="col" class="updateheads">OPERATIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let announce of announces">
+        <th scope="row">{{announce.id}}</th>
+        <td>
+          <img src="{{ANNOUNCEMENT_IMAGE+announce.fileName }}" class="image rounded-circle" />
+        </td>
+        <td>{{announce.subject}}</td>
+        <td>{{announce.title}}</td>
+        <td>{{announce.date | date :  "dd-MM-y" }}</td>
+        <td>
+          <a><button type="button" class="btn btn-primary" [routerLink]="['/update_announce', announce.id]"
+              class="updatecolre"><i class="fas fa-edit"></i> </button></a>
+          <a><button type="button" class="btn btn-danger" (click)="deleteAnnounce(announce.id)" class="deletecolr"><i
+                class="fas fa-trash-alt"></i></button></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>

@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-2"></div>
+
+
+    <div class="col-md-8">
+      <form #eventForm="ngForm" [formGroup]="eventReactiveForm" autocomplete="off">
+
+        <div class="card">
+          <div class="card-header text-center">
+            <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_event"> <span
+                  style="color: white;"> EVENT LIST
+                </span></a></button>
+          </div>
+          <div class="card-body">
+
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id" name="id" formControlName="id">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="eventName" name="eventName" formControlName="eventName"
+                placeholder="Program Name ***">
+              <div
+                *ngIf="eventReactiveForm.controls.eventName.errors && (eventReactiveForm.controls.eventName.touched || eventReactiveForm.controls.eventName.dirty)"
+                style=color:red;>
+                <div *ngIf="eventReactiveForm.hasError('required', 'eventName')">
+                  <h6> Program Name is required</h6>
+                </div>
+                <div *ngIf="eventReactiveForm.hasError('pattern', 'eventName')">
+                  <h6> Program Name is invalid formate</h6>
+                </div>
+                <div *ngIf="eventReactiveForm.hasError('minlength', 'eventName')">
+                  <h6> Program Name must be 3 charactors length</h6>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <textarea rows="2" class="form-control" id="eventVanue" name="eventVanue" formControlName="eventVanue"
+                placeholder="eventVanue"></textarea>
+            </div>
+
+
+
+            <div class="form-group">
+              <textarea class="form-control" rows="5" id="aboutEvent" name="aboutEvent" formControlName="aboutEvent"
+                placeholder="descriptions about event"></textarea>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Date </label>
+                    </div>
+                    <div class="col-md-9">
+                      <input class="pickdate" type="date" name="eventDate" name="eventDate" formControlName="eventDate">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                    style="height:100%" name="fileName" formControlName="fileName">
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-success" (click)="saveEventProfile(eventReactiveForm)"
+              [disabled]="!eventForm.valid">Submit</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+  </div>

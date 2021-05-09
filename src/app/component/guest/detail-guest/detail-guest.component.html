@@ -1,0 +1,106 @@
+<body>
+  <div class="card">
+    <div style="text-align: center;">
+      <a [routerLink]="['/list_guest']"><button class="btn btn-primary"> LIST GUEST </button> </a>
+    </div>
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-md-3" data-spy="scroll" data-target="scrolldata" data-offset="5">
+          <div class="row" style="margin-bottom:15px;">
+            <div class="col-md-12">
+              <input type="text" [(ngModel)]="searchText" class="form-control" style="width: 100%;"
+                placeholder="search not work. . .">
+            </div>
+          </div>
+
+          <hr>
+          <div style="text-align: center" class="col-md-12" class="scrolldata" *ngFor="let gallery of guests ">
+            <div class="col-md-6">
+              <a [routerLink]="['/detail_guest', gallery.id]" (click)="refresh(gallery.id)"><img
+                  src="{{guestFile+gallery.fileName }}" class="sideimage" alt="Cinque Terre"></a>
+            </div>
+            <div class="col-md-6">
+              <p>{{gallery.fullName}}</p>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+
+        <div class="col-md-9">
+          <div class="jumbotron">
+
+            <div class="col-md-12" style="text-align: center">
+              <div class="text-center">
+                <p> <b> {{guestObject.fullName}}</b></p>
+              </div>
+              <img src="{{guestFile+guestObject.fileName }}" class="image" alt="Cinque Terre">
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-md-5">
+                <label> Phone Number :</label>
+              </div>
+              <div class="col-md-7">
+                <p>{{guestObject.phoneNumber}}</p>
+              </div>
+            </div>
+
+            <hr>
+
+
+            <div class="row">
+              <div class="col-md-5">
+                <label> Email :</label>
+              </div>
+              <div class="col-md-7">
+                <p>{{guestObject.email}}</p>
+              </div>
+            </div>
+
+            <hr>
+
+
+
+
+            <div class="row">
+              <div class="col-md-5">
+                <label> Gender :</label>
+              </div>
+              <div class="col-md-7">
+                <p>{{guestObject.gender}}</p>
+              </div>
+            </div>
+
+            <hr>
+
+
+            <div class="row">
+              <div class="col-md-5">
+                <label> Education :</label>
+              </div>
+              <div class="col-md-7">
+                <p>{{guestObject.highestDegree}}</p>
+              </div>
+            </div>
+
+            <hr>
+
+
+
+            <div class="row">
+              <div class="col-md-5">
+                <label> Topic to Speak :</label>
+              </div>
+              <div class="col-md-7">
+                <p>{{guestObject.topicToSpeck}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

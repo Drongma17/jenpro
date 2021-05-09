@@ -1,0 +1,105 @@
+<br>
+<div class="container">
+  <div class="text-center">
+    <button class="btn btn-lg btn-primary"><a [routerLink]="['/list_ehub']" style="color: white;">FINANCIAL LIST OF EHUB</a> </button>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <input type="text" [(ngModel)]="searchehub" class="form-control" placeholder="search...">
+        <table class="table table-bordered row-border hover display text-nowrap">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 10px;">Photo</th>
+              <th scope="col" style="width: 20px;">Name</th>
+              <th scope="col" style="width: 10px;">Choose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ehub of ehubs | ehub:searchehub ">
+              <td><img src="{{ ehubPicture+ehub.fileName }}" class="image" /></td>
+              <td><b>
+                  <p class="btn-sm" [ngStyle]="{'background-color':getColor(ehub.id)}">
+                    {{ehub.ehubName}}</p>
+                </b> </td>
+              <td> <button [ngStyle]="{'background-color':getColor(ehub.id)}" class="btn btn-primary btn-sm"
+                  (click)="getFinanceOfEhub(ehub.id)">show</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <div class="card">
+        <table class="table table-bordered row-border hover display text-nowrap">
+
+          <thead>
+            <tr>
+              <th scope="col">Purpose</th>
+              <th scope="col">Disbursed Amount</th>
+              <th scope="col">Disbursed Date</th>
+              <th scope="col" class="updateheads">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let ehubfinance of ehubfinances">
+              <td>{{ehubfinance.purpose}}</td>
+              <td>{{ehubfinance.disburseAmount}}</td>
+              <td>{{ehubfinance.disburseDate | date :  "dd-MM-y" }}</td>
+              <td>
+                <a><button type="button" class="btn btn-primary"
+                    [routerLink]="['/update_ehub_finance', ehubfinance.id]" class="updatecolre"><i
+                      class="fas fa-edit"></i> </button></a>
+                <a><button type="button" class="btn btn-danger" (click)="deleteehubfinance(ehubfinance.id)"
+                    class="deletecolr"><i class="fas fa-trash-alt"></i></button></a>
+              </td>
+            </tr>
+            <tr>
+              <th>Total Disbursed</th>
+              <th>{{grandTotal}}</th>
+              <th>
+              </th>
+              <th>
+                  <button type="button" class="btn btn-primary btn-sm"><a [routerLink]="['/create_ehub_finance']"
+                    style="color: white;">add</a></button>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+
+      <div class="card">
+          <table class="table table-bordered row-border hover display text-nowrap">
+
+              <thead>
+                <tr>
+                  <th scope="col"style="color: blue;">Allocated Amount</th>
+                  <th scope="col" style="color: green;">Total Disbursed</th>
+                  <th scope="col" style="color:red;">Remaining</th>
+                </tr>
+              </thead>
+    
+              <tbody>
+                <tr>
+                  <td style="color: blue;"><b> {{allocatedAmount}} </b></td>
+                  <td style="color: green;"> <b> {{grandTotal}} </b></td>
+                  <td style="color:red;"><b> {{allocatedAmount - grandTotal}}</b></td>
+                </tr>
+              </tbody>
+            </table>
+        <div class="first text-center">
+          <div [ngStyle]="{'width.%': grandTotal/allocatedAmount*100}" class="second">
+            <span style="color: black;"> <b> {{grandTotal/allocatedAmount*100 | number}}% </b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2"></div>
+  </div>
+</div>

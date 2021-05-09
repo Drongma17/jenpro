@@ -1,0 +1,25 @@
+<br>
+<div class="container">
+  <div class="row" *ngFor="let announce of announces">
+    <div class="card">
+      <br>
+      <img  src="{{ANNOUNCEMENT_IMAGE +announce.fileName}}" class="avatar rounded" alt="">
+      <br>
+      <div class="card-header text-center">
+        <b> {{announce.subject}} </b>
+      </div>
+      <div class="row">
+        <div class="card-body ">
+         <b> {{announce.title}}</b>
+          <br><br>
+          {{announce.body}}
+          <br>
+          <br>
+          <br>
+          <p>Published on : <b> {{announce.date}} </b></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

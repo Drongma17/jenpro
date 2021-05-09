@@ -1,0 +1,47 @@
+
+body {
+    margin: 2px;
+    padding: 0px;
+    background-color: aqua;
+    font-family: sans-serif;
+}
+
+.img-thumbnail {
+ width:400px;
+ height:400px;
+}
+
+.card {
+  margin-top: 0px;
+  margin :5px;
+  background-color: rgb(205, 230, 230);
+}
+
+.jumbotron {
+  width:auto;
+  height:auto;
+}
+
+
+
+label {
+  font-weight: bold;
+}
+
+.image{
+  height: 150px;
+  width: 150px;
+  margin: 0,50%;
+  padding: 0px;
+  border-radius:50%;
+  position: relative;
+}
+
+.sideimage {
+  height: 100px;
+  width: 100px;
+  margin: 0,50%;
+  padding: 0px;
+  border-radius:50%;
+  position: relative;
+}

@@ -1,0 +1,91 @@
+<body>
+
+    <div class="card">
+
+        <div class="card-body">
+            <div class="d-flex flex-row">
+
+                <div class="col-md-4 section1">
+
+                    <div class="col-md-12" style="text-align: center">
+                        <img src="{{Applicant_IMAGE+data.fileName }}" class="image" alt="Cinque Terre">
+                    </div>
+                    <div class="text-center">
+                        <p> <b>{{data.title}} {{data.applicantName}}</b></p>
+                    </div>
+                    <br>
+                    <hr>
+
+                    <div class="d-flex flex-row">
+                        <div class="col-md-5">
+                            <label> Ph No :</label>
+                        </div>
+                        <div class="col-md-7">
+                            <p>{{data.phoneNumber}}</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="d-flex flex-row">
+                        <div class="col-md-5">
+                            <label> email :</label>
+                        </div>
+                        <div class="col-md-7">
+                            <p>{{data.email}}</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="d-flex flex-row">
+                        <div class="col-md-5">
+                            <label>Applicant :</label>
+                        </div>
+                        <div class="col-md-7">
+                            <p>{{data.applicantName}}</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="d-flex flex-row">
+                        <div class="col-md-5">
+                            <label> Address :</label>
+                        </div>
+                        <div class="col-md-7">
+                            <p>{{data.address}}</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-8">
+                        <div class="text-center">
+                               <b>PURPOSE</b> 
+                            </div>
+                    <div class="d-flex flex-row">
+                        <cdk-virtual-scroll-viewport itemSize="200" class="purposeview">
+                            <mat-card>
+                                <mat-card-title>{{data.purpose}}</mat-card-title>
+                            </mat-card>
+                        </cdk-virtual-scroll-viewport>
+                    </div>
+                    <br>
+                    <hr>
+
+
+                    <div class="text-center">
+                          <b>ABOUT</b>  
+                        </div>
+                    <div class="d-flex flex-row">
+                     
+                        <cdk-virtual-scroll-viewport itemSize="100" class="viewport">
+                            <mat-card>
+                                <mat-card-title>{{data.about}}</mat-card-title>
+                            </mat-card>
+                        </cdk-virtual-scroll-viewport>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

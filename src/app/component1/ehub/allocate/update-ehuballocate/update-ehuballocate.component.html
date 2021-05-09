@@ -1,0 +1,114 @@
+<br>
+<div class="container">
+    <div class="text-center">
+        <button class="btn btn-lg btn-primary"><a [routerLink]="['/list_ehub_allocate']" style="color: white;">LIST EHUB ALLOCATE</a> </button>
+    </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <input type="text" [(ngModel)]="searchehub" class="form-control" placeholder="Search ehub. . ." />
+        <table class="table table-bordered row-border hover display text-nowrap">
+
+          <thead>
+            <tr>
+              <th scope="col" style="width: 10px;">Photo</th>
+              <th scope="col" style="width: 20px;">Name</th>
+              <th scope="col" style="width: 10px;">Choose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ehub of ehubs | ehub:searchehub ">
+              <td><img src="{{ ehubPicture+ehub.fileName }}" class="image" /></td>
+              <td><b>
+                  <p class="btn-sm" [ngStyle]="{'background-color':getColor(ehub.id)}">
+                    {{ehub.ehubName}}</p>
+                </b> </td>
+              <td> <button [ngStyle]="{'background-color':getColor(ehub.id)}" class="btn btn-primary btn-sm"
+                (click)="selectedEhub(ehub.id)">select</button></td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>
+
+
+<div class="col-md-6">
+  <form #ehuballocateform="ngForm">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title text-center">
+           Update ehub allpcate
+          </div>
+        </div>
+        <div class="card-body">
+
+          <div class="form-group">
+            <input type="hidden" class="form-control" id="id" [(ngModel)]="data.id" name="id" >
+          </div>
+
+
+          <div class="form-group">
+            <div class="d-flex flex-row">
+              <div class="col">
+                <label>purpose</label>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="purpose" [(ngModel)]="data.purpose">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="d-flex flex-row">
+              <div class="col">
+                <label>Allocate Amount</label>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="allocateAmount" [(ngModel)]="data.allocateAmount" >
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="d-flex flex-row">
+              <div class="col">
+                <label>Allocate Date</label>
+              </div>
+              <div class="col">
+                <input class="pickdate" type="date" name="allocateDate" [(ngModel)]="data.allocateDate"  >
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="d-flex flex-row">
+              <div class="col">
+                <label>description</label>
+              </div>
+              <div class="col">
+                <textarea cols="3" class="form-control" name="description" [(ngModel)]="data.description"></textarea>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-lg btn-success" (click)="updateEhubAllocate(data)"
+                  [disabled]="!ehuballocateform.valid">update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+</div>
+
+
+<div class="col-md-2"></div>
+</div>
+</div>

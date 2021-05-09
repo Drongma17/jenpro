@@ -1,0 +1,167 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-2"></div>
+
+
+    <div class="col-md-8">
+      <form #guesForm="ngForm" [formGroup]="guestReactiveForm" autocomplete="off">
+        <div class="card">
+          <div class="card-header text-center">
+            <button type="button" class="btn btn-primary btn-sm"><a routerLink="/list_guest"> <span style="color: white;"> LIST GUEST
+            </span></a>
+        </button>
+          </div>
+
+          <div class="card-body">
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id" name="id"
+                formControlName="id">
+            </div>
+
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="fullName" name="fullName" 
+                formControlName="fullName" placeholder="full name">
+              <div
+                *ngIf="guestReactiveForm.controls.fullName.errors && (guestReactiveForm.controls.fullName.touched || guestReactiveForm.controls.fullName.dirty)"
+                style="color: red;">
+                <div *ngIf="guestReactiveForm.hasError('required', 'fullName')">
+                  <h6> Guest Name is required</h6>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="email" name="email" 
+                    formControlName="email" placeholder="Email Address">
+                  <div
+                    *ngIf="guestReactiveForm.controls.email.errors && (guestReactiveForm.controls.email.touched || guestReactiveForm.controls.email.dirty)"
+                    style=color:red;>
+                    <div *ngIf="guestReactiveForm.hasError('pattern', 'email')">
+                      <h6>Email is invalid formate</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" 
+                    formControlName="phoneNumber" placeholder="Phone Number">
+                  <div
+                    *ngIf="guestReactiveForm.controls.phoneNumber.errors && (guestReactiveForm.controls.phoneNumber.touched || guestReactiveForm.controls.phoneNumber.dirty)"
+                    style=color:red;>
+                    <div *ngIf="guestReactiveForm.hasError('minlength', 'phoneNumber')">
+                      <h6>Phone not less than 10 digit</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <label for="gender">
+                        gender
+                      </label>
+                    </div>
+                    <div class="col-md-7">
+                      <select class="drops" name="gender" id="gender" 
+                        formControlName="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <label for="highestEdu">
+                        Highest Degree
+                      </label>
+                    </div>
+                    <div class="col-md-7">
+                      <select class="drops" name="highestDegree" id="highestDegree" 
+                        formControlName="highestDegree">
+                        <option value="belowten">Below Ten</option>
+                        <option value="tenth">Tenth</option>
+                        <option value="twelve">Twelvth</option>
+                        <option value="batchlor">Batchlor</option>
+                        <option value="master">Master</option>
+                        <option value="Phd">PHD</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="topicToSpeck" name="topicToSpeck"
+                    formControlName="topicToSpeck" placeholder="topic to speck">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-5">
+                    <label>Speaking Date </label>
+                  </div>
+                  <div class="col-md-7">
+                    <input class="pickdate" type="date" name="speakingDate" name="speakingDate"
+                       ngModel formControlName="speakingDate">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <textarea class="form-control" rows="5" id="bioData"  name="bioData" 
+                formControlName="bioData" placeholder="Guest Biography"></textarea>
+            </div>
+
+
+
+
+            <div class="row">
+              <div class="col-md-6">
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="file" class="form-control" accept="image/*" (change)="onSelectFile($event)"
+                    style="height:100%" name="fileName"  formControlName="fileName">
+                </div>
+              </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-lg btn-success" (click)="saveGuest(guestReactiveForm)"
+              [disabled]="!guesForm.valid">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+   
+  </div>
+</div>
